@@ -12,8 +12,8 @@ const Properties =()=>{
     const[bedrooms,setBedrooms] =useState<number>(0)
     const[property,setProperty] =useState<string[]>()
     return(
-        <div className={"flex"}>
-            <div className={"w-[75%] p-10 bg-white text-black h-screen flex flex-col mt-12 rounded-2xl"}>
+        <div className={"flex p-7"}>
+            <div className={"w-[75%] p-10 bg-white text-black h-screen flex flex-col rounded-2xl  "}>
                 <form onSubmit={(e)=>e.preventDefault()} className={"flex justify-center align-middle gap-5 w-full "}>
                     <div className={"flex rounded-full  border-black border-2 "}>
                         <div className={"ml-3 mt-3"}><SearchIcon/></div>
@@ -23,9 +23,9 @@ const Properties =()=>{
                     <div className={"text-black font-bold"}>filters {filters}</div>
                     <button type={"submit"} className={"rounded-xl text-white bg-black pl-5 pe-5 pt-2 pb-2 ml-3"}>Search</button>
                 </form>
-                <div className={"mt-12 flex flex-wrap"}>
+                <div className={"mt-12 flex flex-wrap gap-1.5"}>
                     <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
-                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a p fin dfinb if ifnb fi figneroa ian ia fain anfb ainfvio inla;n<s ia airnb fhgb erugn uergnua uranbioa aibga ufbia fjnr rbja rigf visgrbnalngru 8hgrgnjfbn rgn rh urgu bn nbueis nihgrinqpnbfj rbn  rgn jnnfnfjkn k kbn nbdfknfmnfdknvfi arty"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
                     <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
                     <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
                     <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
@@ -50,7 +50,7 @@ const Properties =()=>{
                     <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
                 </div>
             </div>
-            <aside className={"h-[50%] w-[25%] bg-white mt-12 ml-2.5 p-6 flex flex-col rounded-xl"}>
+            <aside className={"h-[50%] w-[25%] bg-white mt-12 ml-2.5 p-6 flex flex-col rounded-xl "}>
                 {/*bg-[#AEE4F9]*/}
                 <h1 className={"text-2xl font-bold"}>Filter Properties</h1>
                 <div className={"flex mt-4 gap-2"}>

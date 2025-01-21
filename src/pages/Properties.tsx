@@ -3,6 +3,8 @@ import LocalHotelIcon from '@mui/icons-material/LocalHotel';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import {useState} from "react";
 import Button from "../components/Button.tsx";
+import KingBedIcon from '@mui/icons-material/KingBed';
+import Card from '../components/Card.tsx';
 const Properties =()=>{
     const[location,setLocation] =useState<string>("Default")
     const[filters,setFilters] =useState<number>(0)
@@ -21,23 +23,31 @@ const Properties =()=>{
                     <div className={"text-black font-bold"}>filters {filters}</div>
                     <button type={"submit"} className={"rounded-xl text-white bg-black pl-5 pe-5 pt-2 pb-2 ml-3"}>Search</button>
                 </form>
-                <div >
-                    <p>fjibgrijb</p>
-                </div>
-                <div >
-                    <p>fjibgrijb</p>
-                </div>
-                <div >
-                    <p>fjibgrijb</p>
-                </div>
-                <div >
-                    <p>fjibgrijb</p>
-                </div>
-                <div >
-                    <p>fjibgrijb</p>
-                </div>
-                <div >
-                    <p>fjibgrijb</p>
+                <div className={"mt-12 flex flex-wrap"}>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
+                    <Card title={"card"} bathrooms={2} beds={4} description={"This is a party"} imageUrl={"https://i.pinimg.com/474x/03/5c/2d/035c2da2a37074ffaa07f81e88610da8.jpg"} location={"rongai"} price={7000}/>
                 </div>
             </div>
             <aside className={"h-[50%] w-[25%] bg-white mt-12 ml-2.5 p-6 flex flex-col rounded-xl"}>
@@ -61,6 +71,15 @@ const Properties =()=>{
                 </div>
                 <div className={"flex mt-6 gap-2"}>
                     <BathtubIcon/>
+                    <Button label={1} />
+                    <Button label={2} />
+                    <Button label={3} />
+                    <Button label={4} />
+                    <Button label={5} />
+                    <Button label={6} />
+                </div>
+                <div className={"flex mt-6 gap-2"}>
+                    <KingBedIcon/>
                     <Button label={1} />
                     <Button label={2} />
                     <Button label={3} />

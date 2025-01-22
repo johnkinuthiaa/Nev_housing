@@ -12,8 +12,9 @@ const Headers =()=>{
                 <p onClick={()=>navigate("/")}>Home</p>
                 <p onClick={()=>navigate("/properties")}>Properties</p>
                 <p>Service</p>
-                <p>About</p>
+                <p onClick={()=>navigate("/about")}>About</p>
                 <p onClick={()=>navigate("/contact")}>Contact</p>
+                <p onClick={()=>navigate("/faqs")}>Faqs</p>
             </div>
             <div>
                 <button className={"flex content-center align-middle text-2xl"}>Sign up <CgProfile /></button>

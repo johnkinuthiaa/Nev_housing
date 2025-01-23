@@ -8,16 +8,20 @@ interface CardProps{
     description:string,
     price:number,
     beds:number
-    bathrooms:number
+    bathrooms:number,
+    id:number
 }
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BathtubIcon from "@mui/icons-material/Bathtub";
 import KingBedIcon from "@mui/icons-material/KingBed";
+import {useNavigate} from "react-router";
 
-const Card =({imageUrl,title,location,description,price,bathrooms,beds}:CardProps)=>{
+
+const Card =({imageUrl,title,location,description,price,bathrooms,beds,id}:CardProps)=>{
+    const navigate =useNavigate()
     const[clicked,setClicked] =useState(false)
     return(
-        <div className={`flex border-2 border-gray-300 rounded-2xl p-3 w-full justify-between content-start mt-4 `}>
+        <div className={`flex border-2 border-gray-300 rounded-2xl p-3 w-full justify-between content-start mt-4 `} id={id} onClick={()=>navigate(`/description/${id}`)}>
             <div className={"flex"}>
                 <img src={imageUrl} alt={"title"} className={"h-[189px] w-[200px] rounded-2xl"}/>
                 <div className={"flex flex-col ml-5 leading-9 w-[940px]"}>

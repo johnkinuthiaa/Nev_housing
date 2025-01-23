@@ -7,6 +7,7 @@ import Headers from "./components/Headers.tsx";
 import Properties from "./pages/Properties.tsx";
 import About from "./pages/About.tsx";
 import Faqs from './pages/Faqs.tsx';
+import DescriptionPage from "./pages/DescriptionPage.tsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path={"/properties"} element={<Properties/>}/>
           <Route path={"/about"} element={<About/>}/>
           <Route path={"/faqs"} element={<Faqs/>}/>
+          <Route path={"/description/:id"} element={<DescriptionPage/>}/>
       </Routes>
     </div>
   )

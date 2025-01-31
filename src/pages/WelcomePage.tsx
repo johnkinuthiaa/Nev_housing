@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router";
+import "./imageAnimation.css"
 
 
 const WelcomePage =()=>{

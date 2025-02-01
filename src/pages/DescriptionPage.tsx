@@ -7,6 +7,7 @@ const DescriptionPage =()=>{
     const BASEURL =`http://localhost:8080/api/v1/listings/get/id?id=${endpoint}`
     const [content,setContent] =useState("overview")
     const[propertyInfo,setPropertyInfo] =useState<object>({})
+    const[reviews,setReviews] =useState<string[]>([])
     const fetchData =(async ()=>{
         const response =await fetch(BASEURL,{
             method:"GET",
@@ -17,7 +18,8 @@ const DescriptionPage =()=>{
         if(response.ok){
             const data =await response.json()
             if(data.statusCode ===200){
-                setPropertyInfo(data.listing)
+                setPropertyInfo(data?.listing)
+                setReviews(data?.listing?.reviewsList)
             }
 
         }
@@ -54,7 +56,7 @@ const DescriptionPage =()=>{
 
                 </div>
                 {content ==="overview"&&<div className={"flex flex-col"}>
-                    <h2 className={"cursor-pointer"}>Description </h2>
+                    <h2 className={"cursor-pointer leading-7"}>{propertyInfo.description} </h2>
                     <p className={"break-words p-2"}>{propertyInfo.details}</p>
                     <div className={"flex flex-wrap"}>
 
@@ -65,10 +67,13 @@ const DescriptionPage =()=>{
                 </div>}
                 {content ==="reviews"&&<div className={"flex flex-col"}>
                     <h2 >Reviews </h2>
-                    <p className={"break-words p-2"}>{propertyInfo.details}</p>
-                    <div className={"flex flex-wrap"}>
+                    {reviews.map((review)=>(
+                        <div className={"flex  gap-2 flex-col  p-3"}>
+                            <p>{review.review}</p>
+                            <p>{review.createdOn}</p>
+                        </div>
+                    ))}
 
-                    </div>
                     <button>Contact Agent</button>
                     <button>Order now</button>
 

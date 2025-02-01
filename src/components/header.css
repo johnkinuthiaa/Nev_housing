@@ -1,0 +1,31 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin-top: 10px;
+
+}
+header>nav>ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+}
+.logo{
+    font-size: 26px;
+    font-weight: bolder;
+}
+.header>nav>ul>*{
+    cursor: pointer;
+    font-size: 19px;
+
+}
+.profile__info{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+.profile__info__container{
+    margin-right: 5px;
+}

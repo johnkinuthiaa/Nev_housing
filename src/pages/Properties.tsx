@@ -66,9 +66,9 @@ const Properties =()=>{
                 <form onSubmit={(e)=> {
                     e.preventDefault()
                     fetchPropertyByLocation()
-                }} className={"flex justify-center align-middle gap-5 w-full "}>
+                }} className={"flex justify-center align-middle gap-5 w-[80%]  m-auto"}>
                     <input type={"search"} placeholder={"Search location"}
-                           className={"border-black border-2 rounded-2xl p-2 w-[40%] outline-0"}
+                           className={"border-black border-2 rounded-2xl p-2 w-[30%] outline-0"}
                            onChange={
                         (e)=>setLocation(e.target.value)}
                            min={3}
@@ -82,87 +82,152 @@ const Properties =()=>{
 
                     </div>
             </div>
-            <aside className={"h-[50%] w-[25%]  mt-12 ml-2.5 p-6 flex flex-col rounded-xl "}>
-                {/*bg-*/}
-                <form>
-                    <h1 className={"text-2xl font-bold"}>Filter Properties</h1>
-                    <div className={"flex mt-4 gap-2"}>
-                        <button className={"border-black border-2 rounded-xl pt-2 pe-5 pl-2 pb-2 "}>All</button>
-                        <button className={"border-black border-2 rounded-xl pt-2 pe-5 pl-2 pb-2 "}>House</button>
-                        <button className={"border-black border-2 rounded-xl pt-2 pe-5 pl-2 pb-2 "}>Apartments</button>
-                        <button className={"border-black border-2 rounded-xl pt-2 pe-5 pl-2 pb-2 "}>Rentals</button>
-                        <button className={"border-black border-2 rounded-xl pt-2 pe-5 pl-2 pb-2 "}>Sale</button>
-                    </div>
-                    <div className={"flex mt-8 gap-2"}>
-                        <LocalHotelIcon/>
-                        <input type={"number"} min={0}/>
-                    </div>
-                    <div className={"flex mt-6 gap-2"}>
-                        <BathtubIcon/>
-                        <input type={"number"} min={0} className={"w-fit"}/>
-                    </div>
-                    <div className={"flex mt-6 gap-2"}>
-                        <KingBedIcon/>
-                        <input type={"number"} min={0}/>
-                    </div>
-                    <div className={"flex mt-6 gap-2 flex-col"}>
-                        <h1 className={"font-bold text-2xl"}>Furnished</h1>
+            <aside className={"w-[25%] ml-2.5 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full"}>
+                <h1 className={"text-2xl font-bold text-[#ff914d]"}>Filter Properties</h1>
+                <form className={"flex flex-wrap gap-6 mt-2"}>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>Price Range</h2>
                         <div>
-                            <input type={"radio"} value={"furnished"} name={"furnished"}/>
-                            <label className={"mr-5"}>True</label>
-                            <input type={"radio"} value={"not-furnished"} name={"furnished"}/>
-                            <label>False</label>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 0 -Ksh 10000</label>
                         </div>
-                    </div>
-                    <div className={"flex mt-6 gap-2 flex-col "}>
-                        <h1 className={"font-bold text-2xl"}>Parking</h1>
-                        <div className={""}>
-                            <fieldset className={""}>
-                                <input type={"radio"} value={"hasParking"} name={"hasParking"}/>
-                                <label className={"mr-5"}>True</label>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"10000"} name={"price"}/>
+                            <label className={"ml-2"}>Ksh 10000 -Ksh 20000</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>House Type</h2>
+                        <div >
+                            <input type={"radio"} value={"home"} name={"house_type"}/>
+                            <label className={"ml-2"}>Sale</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"rental"} name={"house_type"}/>
+                            <label className={"ml-2"}>Rentals</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"apartments"} name={"house_type"}/>
+                            <label className={"ml-2"}>Apartments</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>Bedrooms</h2>
+                        <div >
+                            <input type={"radio"} value={"0"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>Bedsitters</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"1"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>1</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"2"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>2</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"3"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>3</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"4"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>4</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"5"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>5</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"6"} name={"bedrooms"}/>
+                            <label className={"ml-2"}>6+</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>Bathrooms</h2>
+                        <div >
+                            <input type={"radio"} value={"0"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>Bedsitters</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"1"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>1</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"2"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>2</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"3"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>3</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"4"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>4</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"5"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>5</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"6"} name={"bathrooms"}/>
+                            <label className={"ml-2"}>6+</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>swimming pool</h2>
+                        <div>
+                            <input type={"radio"} value={"true"} name={"swimming_pool"}/>
+                            <label className={"ml-2"}>swimming</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"false"} name={"swimming_pool"}/>
+                            <label className={"ml-2"}>no swimming pool</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={"text-[#5271ff] mb-1 text-2xl font-bold"}>Gym</h2>
+                        <div>
+                            <input type={"radio"} value={"true"} name={"gym"}/>
+                            <label className={"ml-2"}>true</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"false"} name={"gym"}/>
+                            <label className={"ml-2"}>false</label>
+                        </div>
+                    </fieldset>
+                    <fieldset className={" leading-7"}>
+                        <h2 className={" text-[#5271ff] text-2xl font-bold"}>Parking</h2>
+                        <div>
+                            <input type={"radio"} value={"true"} name={"parking"}/>
+                            <label className={"ml-2"}>true</label>
+                        </div>
+                        <div>
+                            <input type={"radio"} value={"false"} name={"parking"}/>
+                            <label className={"ml-2"}>false</label>
+                        </div>
+                    </fieldset>
 
-                                <label>False</label>
-                                <input type={"radio"} value={"noParking"} name={"hasParking"}/>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div className={"flex mt-6 gap-2 flex-col "}>
-                        <h1 className={"font-bold text-2xl"}>Swimming Pool</h1>
-                        <div className={""}>
-                            <fieldset className={""}>
-                                <input type={"radio"} value={"hasSwimmingPool"} name={"hasSwimmingPool"}/>
-                                <label className={"mr-5"}>True</label>
-
-                                <label>False</label>
-                                <input type={"radio"} value={"noSwimmingPool"} name={"noSwimmingPool"}/>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div className={"flex mt-6 gap-2 flex-col "}>
-                        <h1 className={"font-bold text-2xl"}>Gym</h1>
-                        <div className={""}>
-                            <fieldset className={""}>
-                                <input type={"radio"} value={"hasGym"} name={"hasSGym"}/>
-                                <label className={"mr-5"}>True</label>
-
-                                <label>False</label>
-                                <input type={"radio"} value={"noGym"} name={"noGym"}/>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div className={"flex mt-6 gap-2 flex-col "}>
-                        <h1 className={"font-bold text-2xl"}>Discount</h1>
-                        <div className={""}>
-                            <fieldset className={""}>
-                                <input type={"radio"} value={"hasDiscount"} name={"hasSDiscount"}/>
-                                <label className={"mr-5"}>True</label>
-
-                                <label>False</label>
-                                <input type={"radio"} value={"noDiscount"} name={"noDiscount"}/>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <button className={"mt-12 rounded-3xl text-white pt-2 pb-2 pl-3 pe-3 bg-black"}>Search</button>
+                    <button className={"h-fit rounded-3xl text-white pt-2 pb-2 pl-3 pe-3 bg-black"}>Search</button>
                 </form>
             </aside>
         </div>

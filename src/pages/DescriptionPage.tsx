@@ -27,7 +27,7 @@ const DescriptionPage =()=>{
     }, []);
 
     return(
-        <div className={"bg-[whitesmoke] p-3 flex flex-col "}>
+        <div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[80%]"}>
             <div>
                 <img src={propertyInfo.imgUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
             </div>
@@ -41,20 +41,20 @@ const DescriptionPage =()=>{
                         <h2 className={"font-bold"}>Ksh {propertyInfo.regularPrice} <span className={"font-light"}> /month</span></h2>
                     </div>
                 </div>
-                <div className={"flex justify-between items-center p-3"}>
-                    <h2 onClick={()=>{
+                <div className={"flex justify-between items-center p-5 "}>
+                    <h2 className={"cursor-pointer text-2xl font-bold"} onClick={()=>{
                         setContent("overview")
                     }}>Overview</h2>
-                    <h2 onClick={()=>{
+                    <h2 className={"cursor-pointer text-2xl font-bold"} onClick={()=>{
                         setContent("reviews")
                     }}>Reviews</h2>
-                    <h2 onClick={()=>{
+                    <h2 className={"cursor-pointer text-2xl font-bold"} onClick={()=>{
                         setContent("about")
                     }}>About</h2>
 
                 </div>
                 {content ==="overview"&&<div className={"flex flex-col"}>
-                    <h2>Description </h2>
+                    <h2 className={"cursor-pointer"}>Description </h2>
                     <p className={"break-words p-2"}>{propertyInfo.details}</p>
                     <div className={"flex flex-wrap"}>
 
@@ -64,7 +64,7 @@ const DescriptionPage =()=>{
 
                 </div>}
                 {content ==="reviews"&&<div className={"flex flex-col"}>
-                    <h2>Reviews </h2>
+                    <h2 >Reviews </h2>
                     <p className={"break-words p-2"}>{propertyInfo.details}</p>
                     <div className={"flex flex-wrap"}>
 
@@ -74,7 +74,7 @@ const DescriptionPage =()=>{
 
                 </div>}
                 {content ==="about"&&<div className={"flex flex-col"}>
-                    <h2>About </h2>
+                    <h2 >About </h2>
                     <p className={"break-words p-2"}>{propertyInfo.details}</p>
                     <div className={"flex flex-wrap"}>
 

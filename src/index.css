@@ -11,6 +11,7 @@
 }
 .app{
     /*background:linear-gradient(160deg ,#356dbe,#f6f6f6);*/
+
 }
 
 input[type="text"]{
@@ -18,7 +19,7 @@ input[type="text"]{
     outline: none;
 }
 .about{
-    font-family: "Roboto Light",sans-serif;
+    font-family: Roboto, serif, Aldrich;
 }
 .faqs>*{
     padding: 20px;

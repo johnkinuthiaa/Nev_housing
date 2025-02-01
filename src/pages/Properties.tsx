@@ -47,7 +47,8 @@ const Properties =()=>{
                 setLocation("")
             }
             if(data.statusCode ===404){
-                return <div>Error fetching data...</div>
+                setProperty([])
+                return <div className={"text-center flex justify-center font-bold text-red-600"}>{data.message}</div>
             }
         }
 
@@ -57,7 +58,7 @@ const Properties =()=>{
         return <div>Loading...</div>
     }
     if(error){
-        return <div>Error fetching data...</div>
+        return <div className={"text-center flex justify-center font-bold text-red-600"}>Error fetching data...</div>
     }
     return(
         <div className={"flex p-7"}>.

@@ -1,0 +1,9 @@
+.features>*{
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    background: rgb(200, 198, 198,0.5);
+    font-weight: bold;
+    border-radius: 30px;
+    gap: 2px;
+}

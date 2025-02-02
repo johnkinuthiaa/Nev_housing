@@ -1,7 +1,7 @@
 header{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 25px 20px;
     align-items: center;
     margin-top: 10px;
 
@@ -11,6 +11,9 @@ header>nav>ul{
     justify-content: space-between;
     gap: 30px;
 
+}
+nav>ul>li{
+    font-weight: bold;
 }
 .logo{
     font-size: 26px;

@@ -1,12 +1,20 @@
 import {useNavigate} from "react-router";
 import "./imageAnimation.css"
-
+import * as motion from "motion/react-client"
 
 const WelcomePage =()=>{
     const navigate =useNavigate()
     return(
         <main className={"flex flex-col p-10 scroll-smooth"}>
-            <section className={"home flex gap-2  w-full h-screen text-black " }>
+            <motion.section className={"home flex gap-2  w-full h-screen text-black " }
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.2,
+                                ease: [0, 0.71, 0.2, 1.01],
+                            }}
+            >
                 <div className={"flex flex-col content-start mt-10 justify-items-start w-[60%]"}>
                     <h1 className={"text-8xl font-extrabold"}>Welcome to Nevani! Your Dream Home Awaits!</h1>
                     <p className={"text-4xl mt-3 mb-3"}>Your journey to finding the perfect home starts here.</p>
@@ -18,7 +26,7 @@ const WelcomePage =()=>{
                     <img src={"src/assets/image.png"} className={"w-full h-screen object-cover "}/>
                 </div>
 
-            </section>
+            </motion.section>
             <section className={"flex w-full justify-center mt-10 content-center "} id={"#property"}>
                 <div className={"flex flex-col w-[50%]"}>
                     <h1 className={"text-8xl font-extrabold text-[rgb(0,0,0,0.7)]"}>Find The Best Apartments for you</h1>

@@ -1,7 +1,6 @@
-
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
 import {useNavigate} from "react-router";
+import * as motion from "motion/react-client"
 
 interface CardProps{
     imageUrl:string,
@@ -17,7 +16,15 @@ interface CardProps{
 const Card =({imageUrl,title,location,description,price,bathrooms,beds,id}:CardProps)=>{
     const navigate =useNavigate()
     return(
-        <div id={id} onClick={()=>navigate(`/description/${id}`)}>
+        <motion.div id={id} onClick={()=>navigate(`/description/${id}`)}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0,
+                        ease: [0, 0.71, 0.2, 1.01],
+                    }}
+        >
             <div>
                 <img src={imageUrl} alt={"property"} className={"rounded-2xl h-[420px] w-[420px] object-fill cursor-pointer  hover:shadow-2xl transform:all ease-out "}/>
             </div>
@@ -31,7 +38,7 @@ const Card =({imageUrl,title,location,description,price,bathrooms,beds,id}:CardP
                     <h2>Ratings</h2>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 
 }

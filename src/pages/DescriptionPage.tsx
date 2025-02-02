@@ -1,5 +1,9 @@
 import {useEffect, useState} from "react";
 import RoomIcon from '@mui/icons-material/Room';
+import Order from "../components/Order.tsx";
+import {Bathroom, Bed, DirectionsCar, FitnessCenter, Waves} from "@mui/icons-material";
+import "./Description.css"
+import * as motion from "motion/react-client"
 
 const DescriptionPage =()=>{
     const url =window.location.href
@@ -29,18 +33,26 @@ const DescriptionPage =()=>{
     }, []);
 
     return(
-        <div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[80%]"}>
+        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-[1100px]"}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0,
+                        ease: [0, 0.71, 0.2, 1.01],
+                    }}
+        >
             <div>
                 <img src={propertyInfo.imgUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
             </div>
             <div className={"flex flex-col"}>
-                <div className={"flex justify-between"}>
+                <div className={"flex justify-between w-[40%] mt-4 mb-4 items-center"}>
                     <div className={"flex flex-col"}>
-                        <h1 className={"text-4xl font-bold text-black "}>{propertyInfo.name}</h1>
+                        <h1 className={"text-4xl font-bold text-[#5271ff] "}>{propertyInfo.name}</h1>
                         <p className={"font-light"}><RoomIcon/>{propertyInfo.location}</p>
                     </div>
                     <div>
-                        <h2 className={"font-bold"}>Ksh {propertyInfo.regularPrice} <span className={"font-light"}> /month</span></h2>
+                        <p className={"font-extrabold"}>Ksh {propertyInfo.regularPrice} <span className={"font-light"}> /month</span></p>
                     </div>
                 </div>
                 <div className={"flex justify-between items-center p-5 "}>
@@ -55,43 +67,46 @@ const DescriptionPage =()=>{
                     }}>About</h2>
 
                 </div>
-                {content ==="overview"&&<div className={"flex flex-col"}>
-                    <h2 className={"cursor-pointer leading-7"}>{propertyInfo.description} </h2>
-                    <p className={"break-words p-2"}>{propertyInfo.details}</p>
-                    <div className={"flex flex-wrap"}>
-
-                    </div>
-                    <button>Contact Agent</button>
-                    <button>Order now</button>
-
-                </div>}
-                {content ==="reviews"&&<div className={"flex flex-col"}>
-                    <h2 >Reviews </h2>
-                    {reviews.map((review)=>(
-                        <div className={"flex  gap-2 flex-col  p-3"}>
-                            <p>{review.review}</p>
-                            <p>{review.createdOn}</p>
+                <div className={"p-3 leading-7"}>
+                    {content ==="overview"&&<div className={"flex flex-col"}>
+                        <h2 className={"cursor-pointer leading-7"}>{propertyInfo.description} </h2>
+                        <p className={"break-words p-2"}>{propertyInfo.details}</p>
+                        <div className={"flex flex-wrap gap-5 w-[50%] features mb-2"}>
+                            <div><Bed/>{propertyInfo.bedrooms} Beds</div>
+                            <div><Bathroom/>{propertyInfo.bathrooms} Bathrooms</div>
+                            <div>{propertyInfo.furnished===true?"Furnished":"Not furnished"}</div>
+                            <div><DirectionsCar/>{propertyInfo.parking ===true?"parking provided":"No parking provided"}</div>
+                            <div><Waves/>{propertyInfo.swimmingPool ===true?"Has swimming pool":"No swimming pool"}</div>
+                            <div><FitnessCenter/>{propertyInfo.gym ===true?"Gym":"No gym"}</div>
                         </div>
-                    ))}
+                        <Order/>
 
-                    <button>Contact Agent</button>
-                    <button>Order now</button>
+                    </div>}
+                    {content ==="reviews"&&<div className={"flex flex-col"}>
+                        <h2 >Reviews </h2>
+                        {reviews.map((review)=>(
+                            <div className={"flex  gap-2 flex-col  p-3"}>
+                                <p>{review.review}</p>
+                                <p>{review.createdOn}</p>
+                            </div>
+                        ))}
+                        <Order/>
 
-                </div>}
-                {content ==="about"&&<div className={"flex flex-col"}>
-                    <h2 >About </h2>
-                    <p className={"break-words p-2"}>{propertyInfo.details}</p>
-                    <div className={"flex flex-wrap"}>
+                    </div>}
+                    {content ==="about"&&<div className={"flex flex-col"}>
+                        <h2 >About </h2>
+                        <p className={"break-words p-2"}>{propertyInfo.details}</p>
+                        <div className={"flex flex-wrap"}>
 
-                    </div>
-                    <button>Contact Agent</button>
-                    <button>Order now</button>
+                        </div>
+                        <Order/>
 
-                </div>}
+                    </div>}
+                </div>
             </div>
             <div></div>
 
-        </div>
+        </motion.div>
     )
 }
 export default DescriptionPage

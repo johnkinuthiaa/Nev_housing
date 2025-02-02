@@ -1,9 +1,4 @@
-import SearchIcon from '@mui/icons-material/Search';
-import LocalHotelIcon from '@mui/icons-material/LocalHotel';
-import BathtubIcon from '@mui/icons-material/Bathtub';
-import {useEffect, useState} from "react";
-import Button from "../components/Button.tsx";
-import KingBedIcon from '@mui/icons-material/KingBed';
+import {useState} from "react";
 import Card from '../components/Card.tsx';
 import useSWR from "swr";
 const Properties =()=>{
@@ -66,7 +61,7 @@ const Properties =()=>{
                 <form onSubmit={(e)=> {
                     e.preventDefault()
                     fetchPropertyByLocation()
-                }} className={"flex justify-center align-middle gap-5 w-[80%]  m-auto"}>
+                }} className={"flex justify-center gap-5 w-[80%]"}>
                     <input type={"search"} placeholder={"Search location"}
                            className={"border-black border-2 rounded-2xl p-2 w-[30%] outline-0"}
                            onChange={

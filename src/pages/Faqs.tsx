@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Faqs =()=>{
     return(
-        <div className={"faqs flex flex-col w-[50%] rounded-3xl shadow-2xl content-center justify-center ml-[30%] mt-10"}>
+        <div className={"faqs flex flex-col w-[50%] rounded-3xl shadow-2xl content-center justify-center ml-[25%] mt-10 scroll-smooth"}>
             <Accordion >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

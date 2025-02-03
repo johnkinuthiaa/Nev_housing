@@ -8,19 +8,17 @@ interface CardProps{
     location:string,
     description:string,
     price:number,
-    beds:number
-    bathrooms:number,
     id:number
 }
 
-const Card =({imageUrl,title,location,description,price,bathrooms,beds,id}:CardProps)=>{
+const Card =({imageUrl,title,location,price,id}:CardProps)=>{
     const navigate =useNavigate()
     return(
         <motion.div id={id} onClick={()=>navigate(`/description/${id}`)}
-                    initial={{ opacity: 0, scale: 0.5 }}
+                    initial={{ opacity: 0, scale: 0.7 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
-                        duration: 0.8,
+                        duration: 0.4,
                         delay: 0,
                         ease: [0, 0.71, 0.2, 1.01],
                     }}

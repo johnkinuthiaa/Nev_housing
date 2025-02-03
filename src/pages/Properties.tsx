@@ -70,14 +70,14 @@ const Properties =()=>{
                     />
                     <button type={"submit"}  className={"font-bold text-white bg-black p-3 rounded-2xl"}>Search</button>
                 </form>
-                <div className={"mt-12 flex flex-wrap gap-4"}>
-                    {property.map(({name,description,location,bathrooms,bedrooms,imgUrl,regularPrice,id}:string)=>(
-                        <Card title={name} bathrooms={bathrooms} beds={bedrooms} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
+                <div className={"mt-12 flex flex-wrap gap-4 sm:w-full pb-4"}>
+                    {property.map(({name,description,location,imgUrl,regularPrice,id}:string)=>(
+                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
                     ))}
 
                     </div>
             </div>
-            <aside className={"w-[25%] ml-2.5 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full"}>
+            <aside className={"w-[25%] ml-2.5 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full scroll-mt-0"}>
                 <h1 className={"text-2xl font-bold text-[#ff914d]"}>Filter Properties</h1>
                 <form className={"flex flex-wrap gap-6 mt-2"}>
                     <fieldset className={" leading-7"}>

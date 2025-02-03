@@ -4,6 +4,10 @@ import Order from "../components/Order.tsx";
 import {Bathroom, Bed, DirectionsCar, FitnessCenter, Waves} from "@mui/icons-material";
 import "./Description.css"
 import * as motion from "motion/react-client"
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import CountertopsIcon from '@mui/icons-material/Countertops';
+import PetsIcon from '@mui/icons-material/Pets';
+import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 
 const DescriptionPage =()=>{
     const url =window.location.href
@@ -31,9 +35,8 @@ const DescriptionPage =()=>{
     useEffect(() => {
         fetchData()
     }, []);
-
     return(
-        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-[1100px]"}
+        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-full"}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -46,12 +49,13 @@ const DescriptionPage =()=>{
                 <img src={propertyInfo.imgUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
             </div>
             <div className={"flex flex-col"}>
-                <div className={"flex justify-between w-[40%] mt-4 mb-4 items-center"}>
-                    <div className={"flex flex-col"}>
-                        <h1 className={"text-4xl font-bold text-[#5271ff] "}>{propertyInfo.name}</h1>
-                        <p className={"font-light"}><RoomIcon/>{propertyInfo.location}</p>
+                <h1 className={"text-4xl font-bold text-[#5271ff] mt-5 mb-5"}>{propertyInfo.name}</h1>
+                <div className={"flex justify-between w-[50%] mt-4 mb-4 items-center"}>
+                    <div className={"flex flex-col gap-5"}>
+                        <p className={"font-light"}><RoomIcon/>{propertyInfo?.location}</p>
+                        <p className={"font-light"}><AccessTimeIcon/>{propertyInfo?.createdAt?.toString().substring(0,10)} <span className={"ml-2 text-gray-600"}>{propertyInfo?.createdAt?.toString().substring(11,19)} hrs</span> </p>
                     </div>
-                    <div>
+                    <div className={""}>
                         <p className={"font-extrabold"}>Ksh {propertyInfo.regularPrice} <span className={"font-light"}> /month</span></p>
                     </div>
                 </div>
@@ -71,13 +75,37 @@ const DescriptionPage =()=>{
                     {content ==="overview"&&<div className={"flex flex-col"}>
                         <h2 className={"cursor-pointer leading-7"}>{propertyInfo.description} </h2>
                         <p className={"break-words p-2"}>{propertyInfo.details}</p>
-                        <div className={"flex flex-wrap gap-5 w-[50%] features mb-2"}>
+                        <div className={"property__amenities mb-2"}>
+                            <div className={"flex items-center text-[#ff914d]"}><p className={"font-bold "}><ElectricalServicesIcon/> Electricity Type: <span className={"font-normal text-black"}>{propertyInfo.electricityType}</span> </p></div>
+                            <div className={"flex items-center "}><p className={"text-[#ff914d] font-bold "}>Status: <span className={"font-normal text-black"}>{propertyInfo.status}</span></p></div>
+                            <p className={"font-bold text-[#ff914d]"}> <PetsIcon/> Pet Policy: <span className={"font-normal text-black "}>{propertyInfo.petPolicy}</span></p>
+                            <div className={"flex gap-2 flex-col"}>
+                                <p className={"font-bold text-[#ff914d]"}>Appliances:</p>
+                                <div className={"flex gap-5 flex-wrap ml-14"}>
+                                    {propertyInfo?.appliancesIncluded?.map((appliance:string)=>(
+                                        <div>{appliance}</div>
+                                    ))}
+                                </div>
+
+                            </div>
+                            <div className={"flex gap-2 flex-col"}>
+                                <p className={"font-bold text-[#ff914d]"}>Schools available:</p>
+                                <div className={"gap-5 flex  flex-col ml-14"}>
+                                    {propertyInfo?.nearBySchools?.map((appliance:string)=>(
+                                        <div>{appliance}</div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className={"flex flex-wrap gap-5 w-[60%] features mb-2 mt-3"}>
                             <div><Bed/>{propertyInfo.bedrooms} Beds</div>
                             <div><Bathroom/>{propertyInfo.bathrooms} Bathrooms</div>
+                            <div><CountertopsIcon/>{propertyInfo.kitchen} kitchens</div>
                             <div>{propertyInfo.furnished===true?"Furnished":"Not furnished"}</div>
                             <div><DirectionsCar/>{propertyInfo.parking ===true?"parking provided":"No parking provided"}</div>
                             <div><Waves/>{propertyInfo.swimmingPool ===true?"Has swimming pool":"No swimming pool"}</div>
                             <div><FitnessCenter/>{propertyInfo.gym ===true?"Gym":"No gym"}</div>
+
                         </div>
                         <Order/>
 

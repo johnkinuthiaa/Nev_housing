@@ -7,3 +7,6 @@
     border-radius: 30px;
     gap: 2px;
 }
+.property__amenities>*{
+    margin-top: 8px;
+}

@@ -12,6 +12,8 @@ import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import CategoryIcon from '@mui/icons-material/Category';
 import InfoIcon from '@mui/icons-material/Info';
 
+
+
 const DescriptionPage =()=>{
     const url =window.location.href
     const endpoint =url.match(/[^/]+$/)
@@ -55,6 +57,7 @@ const DescriptionPage =()=>{
         const data =await response.json()
         console.log(data.message)
     })
+
 
     return(
         <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-full"}
@@ -131,15 +134,18 @@ const DescriptionPage =()=>{
                         <Order/>
 
                     </div>}
-                    {content ==="reviews"&&<div className={"flex flex-col"}>
-                        <h2 >Reviews </h2>
-                        {reviews.map((review)=>(
-                            <div className={"flex  gap-2 flex-col  p-3"}>
-                                <p>{review.review}</p>
-                                <p>{review.createdOn}</p>
-                            </div>
-                        ))}
-                        <form className={"flex flex-col w-[50%]"}
+                    {content ==="reviews"&&
+                        <div className={"flex flex-col gap-3 border-t  border-t-gray-400 mt-4"}>
+                        <h2 className={"font-bold text-2xl"}>Reviews </h2>
+                        <div className={"flex flex-wrap gap-5"}>
+                            {reviews.map((review)=>(
+                                <div className={"flex flex-col p-4 shadow-xl h-[200px] w-[46%]"}>
+                                    <p>{review.review}</p>
+                                    <p className={""}>Created on: {review.createdOn.toString().substring(0,10)} at {review.createdOn.toString().substring(11,19)} hrs</p>
+                                </div>
+                            ))}
+                        </div>
+                        <form className={"flex flex-col w-[50%] mt-10"}
                               onSubmit={(e)=>{
                                   e.preventDefault()
                                   sendReview()

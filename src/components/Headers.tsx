@@ -17,8 +17,9 @@ const Headers =()=>{
                     <li onClick={()=>navigate("/faqs")}>Faqs</li>
                 </ul>
                 </nav>
-            <div className={"profile__info__container"}>
-                <button className={"profile__info"}>Sign up <CgProfile /></button>
+            <div className={"profile__info__container flex gap-2"}>
+                <button className={"profile__info border rounded-2xl font-bold"}>Sign up <CgProfile /></button>
+                <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in <CgProfile /></button>
             </div>
 
 

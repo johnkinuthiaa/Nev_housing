@@ -26,9 +26,11 @@ nav>ul>li{
 }
 .profile__info{
     display: flex;
-    gap: 2px;
     align-items: center;
+    padding: 5px 10px;
+    gap: 2px;
 }
 .profile__info__container{
     margin-right: 5px;
 }
+

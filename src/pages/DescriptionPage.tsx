@@ -7,15 +7,25 @@ import * as motion from "motion/react-client"
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CountertopsIcon from '@mui/icons-material/Countertops';
 import PetsIcon from '@mui/icons-material/Pets';
+import SchoolIcon from '@mui/icons-material/School';
 import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
+import CategoryIcon from '@mui/icons-material/Category';
+import InfoIcon from '@mui/icons-material/Info';
 
 const DescriptionPage =()=>{
     const url =window.location.href
     const endpoint =url.match(/[^/]+$/)
     const BASEURL =`http://localhost:8080/api/v1/listings/get/id?id=${endpoint}`
+    const REVIEW_URL =`http://localhost:8080/api/v1/reviews/create?userId=4&listingId=${endpoint}`
+    const [review,setReview] =useState("")
     const [content,setContent] =useState("overview")
     const[propertyInfo,setPropertyInfo] =useState<object>({})
     const[reviews,setReviews] =useState<string[]>([])
+
+    useEffect(() => {
+        fetchData()
+    }, []);
+
     const fetchData =(async ()=>{
         const response =await fetch(BASEURL,{
             method:"GET",
@@ -32,9 +42,20 @@ const DescriptionPage =()=>{
 
         }
     })
-    useEffect(() => {
-        fetchData()
-    }, []);
+    const sendReview =(async()=>{
+        const response =await fetch(REVIEW_URL,{
+            method:"POST",
+            body:JSON.stringify({
+                review:review
+            }),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        const data =await response.json()
+        console.log(data.message)
+    })
+
     return(
         <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-full"}
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -49,14 +70,14 @@ const DescriptionPage =()=>{
                 <img src={propertyInfo.imgUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
             </div>
             <div className={"flex flex-col"}>
-                <h1 className={"text-4xl font-bold text-[#5271ff] mt-5 mb-5"}>{propertyInfo.name}</h1>
+                <h1 className={"text-4xl font-bold text-[#5271ff] mt-3 mb-3"}>{propertyInfo.name}</h1>
                 <div className={"flex justify-between w-[50%] mt-4 mb-4 items-center"}>
-                    <div className={"flex flex-col gap-5"}>
+                    <div className={"flex flex-col gap-4"}>
                         <p className={"font-light"}><RoomIcon/>{propertyInfo?.location}</p>
-                        <p className={"font-light"}><AccessTimeIcon/>{propertyInfo?.createdAt?.toString().substring(0,10)} <span className={"ml-2 text-gray-600"}>{propertyInfo?.createdAt?.toString().substring(11,19)} hrs</span> </p>
+                        <p className={"font-bold"}><AccessTimeIcon/> {propertyInfo?.createdAt?.toString().substring(0,10)} <span className={"ml-2 text-gray-600"}>{propertyInfo?.createdAt?.toString().substring(11,19)} hrs</span> </p>
                     </div>
                     <div className={""}>
-                        <p className={"font-extrabold"}>Ksh {propertyInfo.regularPrice} <span className={"font-light"}> /month</span></p>
+                        <p className={"font-extrabold"}>Ksh <span className={"text-2xl"}>{propertyInfo.regularPrice}</span><span className={"font-bold text-gray-700"}> /month</span></p>
                     </div>
                 </div>
                 <div className={"flex justify-between items-center p-5 "}>
@@ -77,10 +98,10 @@ const DescriptionPage =()=>{
                         <p className={"break-words p-2"}>{propertyInfo.details}</p>
                         <div className={"property__amenities mb-2"}>
                             <div className={"flex items-center text-[#ff914d]"}><p className={"font-bold "}><ElectricalServicesIcon/> Electricity Type: <span className={"font-normal text-black"}>{propertyInfo.electricityType}</span> </p></div>
-                            <div className={"flex items-center "}><p className={"text-[#ff914d] font-bold "}>Status: <span className={"font-normal text-black"}>{propertyInfo.status}</span></p></div>
+                            <div className={"flex items-center "}><p className={"text-[#ff914d] font-bold "}><InfoIcon/> Status: <span className={"font-normal text-black"}>{propertyInfo.status}</span></p></div>
                             <p className={"font-bold text-[#ff914d]"}> <PetsIcon/> Pet Policy: <span className={"font-normal text-black "}>{propertyInfo.petPolicy}</span></p>
                             <div className={"flex gap-2 flex-col"}>
-                                <p className={"font-bold text-[#ff914d]"}>Appliances:</p>
+                                <p className={"font-bold text-[#ff914d]"}><CategoryIcon/>Appliances:</p>
                                 <div className={"flex gap-5 flex-wrap ml-14"}>
                                     {propertyInfo?.appliancesIncluded?.map((appliance:string)=>(
                                         <div>{appliance}</div>
@@ -89,10 +110,10 @@ const DescriptionPage =()=>{
 
                             </div>
                             <div className={"flex gap-2 flex-col"}>
-                                <p className={"font-bold text-[#ff914d]"}>Schools available:</p>
+                                <p className={"font-bold text-[#ff914d]"}><SchoolIcon/> Nearby schools:</p>
                                 <div className={"gap-5 flex  flex-col ml-14"}>
-                                    {propertyInfo?.nearBySchools?.map((appliance:string)=>(
-                                        <div>{appliance}</div>
+                                    {propertyInfo?.nearBySchools?.map((school:string)=>(
+                                        <div>{school}</div>
                                     ))}
                                 </div>
                             </div>
@@ -118,6 +139,19 @@ const DescriptionPage =()=>{
                                 <p>{review.createdOn}</p>
                             </div>
                         ))}
+                        <form className={"flex flex-col w-[50%]"}
+                              onSubmit={(e)=>{
+                                  e.preventDefault()
+                                  sendReview()
+                              }}
+                        >
+                            <label>Write review: </label>
+                            <textarea placeholder={"review..."} spellCheck={"true"} required={true}
+                                      onChange={(e)=>setReview(e.target.value)}
+                                      className={"border border-black rounded-2xl p-2 h-[200px] outline-0 active:outline-0"}>
+                            </textarea>
+                            <button className={"p-3 rounded-2xl text-white bg-black w-fit font-bold mt-2"} type={"submit"}>Submit</button>
+                        </form>
                         <Order/>
 
                     </div>}

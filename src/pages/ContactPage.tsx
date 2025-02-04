@@ -54,7 +54,7 @@ const ContactPage =()=>{
                     <input type={"tel"} placeholder={"+2547..."} className={"border border-gray-600 rounded-2xl p-1 "} required={true} onChange={(e)=>setMobileNumber(e.target.value)}/>
                     <label className={"mt-4"}>Message</label>
                     <textarea placeholder={"Leave us a message"} className={"border border-gray-600 rounded-2xl p-1 h-52 w-full resize-none"} required={true} onChange={(e)=>setMessage(e.target.value)}></textarea>
-                    <button type={"submit"} className={"p-4 bg-black font-bold text-white w-fit mt-10 rounded-2xl "} onClick={()=>{
+                    <button type={"submit"} className={"p-2 bg-black font-bold text-white w-fit mt-10 rounded-2xl "} onClick={()=>{
 
                     }}>Send message</button>
                 </form>

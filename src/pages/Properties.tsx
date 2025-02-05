@@ -1,14 +1,15 @@
 import {useState} from "react";
 import Card from '../components/Card.tsx';
 import useSWR from "swr";
+import Loading from "../components/Loading.tsx";
 const Properties =()=>{
 
     const PROPERTY_URL:string ="http://localhost:8080/api/v1/listings/all"
 
     const[location,setLocation] =useState<string>("")
-    const[filters,setFilters] =useState<number>(0)
-    const[bathrooms,setBathrooms] =useState<number>(0)
-    const[bedrooms,setBedrooms] =useState<number>(0)
+    // const[filters,setFilters] =useState<number>(0)
+    // const[bathrooms,setBathrooms] =useState<number>(0)
+    // const[bedrooms,setBedrooms] =useState<number>(0)
     const[property,setProperty] =useState<string[]>([])
     const LOCATION_SEARCH =`http://localhost:8080/api/v1/listings/get/location?location=${location}`
 
@@ -26,7 +27,7 @@ const Properties =()=>{
             if(data.statusCode ===200){
                 setProperty(data.listings)
             }else{
-                throw Error
+                setProperty([])
             }
         }
     })
@@ -48,13 +49,13 @@ const Properties =()=>{
         }
 
     })
-    const{isLoading,error} =useSWR("http://localhost:8080/api/v1/listings/all",fetchData)
+    const{isLoading} =useSWR("http://localhost:8080/api/v1/listings/all",fetchData)
     if(isLoading){
-        return <div>Loading...</div>
+        return <div className={"mt-40 text-center flex justify-center"}><Loading/></div>
     }
-    if(error){
-        return <div className={"text-center flex justify-center font-bold text-red-600"}>Error fetching data...</div>
-    }
+    // if(error){
+    //     return <div className={"text-center flex justify-center font-bold text-red-600 mt-40"}>Error fetching data...</div>
+    // }
     return(
         <div className={"flex p-7 mt-16"}>.
             <div className={"w-[75%] p-10 bg-white text-black h-screen flex flex-col "}>

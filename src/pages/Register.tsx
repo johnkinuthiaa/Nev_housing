@@ -63,7 +63,7 @@ const Register =()=>{
                         <input type={showPassword?"text":"password"} placeholder={"Password"} className={"border-b-2 border-b-gray-500 active:outline-0 w-full"} required={true} onChange={(e)=>{
                             setPassword(e.target.value)
                         }}/>
-                        <button className={" outline-0 -ml-4"} onClick={()=>setShowPassword(!showPassword)}>{showPassword?<VisibilityIcon/>:<VisibilityOffIcon/>} </button>
+                        <button className={" outline-0 -ml-4"} type={"button"} onClick={()=>setShowPassword(!showPassword)}>{showPassword?<VisibilityIcon/>:<VisibilityOffIcon/>} </button>
                     </div>
                     <div className={"flex justify-end text-gray-600"}>forgot password?</div>
                     <button className={"flex items-center justify-center rounded-2xl bg-black p-2 text-white w-full font-bold"} type={"submit"}>{loading?<Loading/>:"Register"}</button>

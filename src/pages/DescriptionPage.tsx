@@ -60,7 +60,7 @@ const DescriptionPage =()=>{
 
 
     return(
-        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-[10px] p-3 flex flex-col m-auto w-[60%] h-full"}
+        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-28 p-3 flex flex-col m-auto w-[60%] h-full"}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{

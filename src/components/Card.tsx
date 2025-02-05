@@ -9,7 +9,8 @@ interface CardProps{
     location:string,
     description:string,
     price:number,
-    id:number
+    // houthefak
+    id:string
 }
 
 const Card =({imageUrl,title,location,price,id}:CardProps)=>{
@@ -27,10 +28,10 @@ const Card =({imageUrl,title,location,price,id}:CardProps)=>{
             <div>
                 <img src={imageUrl} alt={"property"} className={"rounded-2xl h-[420px] w-[420px] object-fill cursor-pointer  hover:shadow-2xl transform:all ease-out "}/>
             </div>
-            <div className={"-mt-36 w-[390px] ml-4 p-2 absolute bg-white rounded-2xl flex flex-col"}>
-                <div className={"flex flex-col"}>
+            <div className={"-mt-36 w-[390px] ml-4 p-1 absolute bg-white rounded-2xl flex flex-col cursor-pointer"}>
+                <div className={"flex flex-col border-b-gray-400 border-b p-2 rounded-b-2xl"}>
                     <h1 className={"font-bold text-2xl "}>{title}</h1>
-                    <h3 className={"text-blue-700"}><LocationOnIcon/><span className={"text-gray-700 font-semibold "}> {location}</span> </h3>
+                    <h3 className={"text-blue-700"}><LocationOnIcon/><span className={"text-gray-700 font-semibold mb-2"}> {location}</span> </h3>
                 </div>
                 <div className={"flex justify-between items-center mt-2"}>
                     <h2 className={"font-bold text-xl"}>Ksh {price} <span className={"text-gray-600 font-light"}>/month</span></h2>

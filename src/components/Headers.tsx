@@ -5,7 +5,7 @@ import "./header.css"
 const Headers =()=>{
     const navigate:NavigateFunction =useNavigate();
     return(
-        <header className={"header shadow-xl"}>
+        <header className={"header shadow-xl fixed w-full top-0 z-10 bg-white"}>
             <p className={"logo text-[#ff914d]"}>Nevani <span className={"text-[#5271ff] border-red-500"}>Housing</span></p>
             <nav>
                 <ul>
@@ -18,7 +18,7 @@ const Headers =()=>{
                 </ul>
                 </nav>
             <div className={"profile__info__container flex gap-2"}>
-                <button className={"profile__info border rounded-2xl font-bold"}>Sign up <CgProfile /></button>
+                <button className={"profile__info border rounded-2xl font-bold"} onClick={()=>navigate("/register")}>Sign up <CgProfile /></button>
                 <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in <CgProfile /></button>
             </div>
 

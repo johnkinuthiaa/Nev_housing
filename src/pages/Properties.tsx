@@ -56,12 +56,12 @@ const Properties =()=>{
         return <div className={"text-center flex justify-center font-bold text-red-600"}>Error fetching data...</div>
     }
     return(
-        <div className={"flex p-7"}>.
-            <div className={"w-[75%] p-10 bg-white text-black h-screen flex flex-col rounded-2xl  "}>
+        <div className={"flex p-7 mt-16"}>.
+            <div className={"w-[75%] p-10 bg-white text-black h-screen flex flex-col "}>
                 <form onSubmit={(e)=> {
                     e.preventDefault()
                     fetchPropertyByLocation()
-                }} className={"flex justify-center gap-5 w-[80%]"}>
+                }} className={"flex justify-center gap-5 w-[80%] ml-16"}>
                     <input type={"search"} placeholder={"Search location"}
                            className={"border-black border-2 rounded-2xl p-2 w-[30%] outline-0"}
                            onChange={
@@ -77,7 +77,7 @@ const Properties =()=>{
 
                     </div>
             </div>
-            <aside className={"w-[25%] ml-2.5 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full scroll-mt-0"}>
+            <aside className={"w-[25%] ml-2.5 mr-4 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full scroll-mt-0"}>
                 <h1 className={"text-2xl font-bold text-[#ff914d]"}>Filter Properties</h1>
                 <form className={"flex flex-wrap gap-6 mt-2"}>
                     <fieldset className={" leading-7"}>

@@ -5,6 +5,10 @@ section>div>img{
     animation-timeline: view();
     animation-range:entry;
 
+
+}
+*{
+    scrollbar-width: thin;
 }
 @keyframes fade-in {
     to{ scale: 1; opacity: 1}

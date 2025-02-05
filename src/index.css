@@ -16,8 +16,9 @@
 label{
     color: rgb(26, 26, 29,0.7);
 }
-input[type="text"]{
-
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     outline: none;
 }
 .about{

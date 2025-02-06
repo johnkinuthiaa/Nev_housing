@@ -26,17 +26,17 @@ function App() {
     <div className={"app"}>
         <Headers/>
         <Routes>
+            <Route path={"/contact"} element={<ContactPage/>}/>
+            <Route path={"/"} element={<WelcomePage/>}/>
+            <Route path={"/terms-and-conditions"} element={<TermsAndConditions/>}/>
+            <Route path={"/properties"} element={<Properties/>}/>
+            <Route path={"/about"} element={<About/>}/>
+            <Route path={"/faqs"} element={<Faqs/>}/>
+            <Route path={"*"} element={<LoginPage/>}/>
+            <Route path={"/signup"} element={<Faqs/>}/>
+            <Route path={"/description/:id"} element={<DescriptionPage/>}/>
             <Route path={"/login"} element={<LoginPage/>}/>
             <Route path={"/register"} element={<Register/>}/>
-          <Route path={"/contact"} element={<ContactPage/>}/>
-          <Route path={"/"} element={<WelcomePage/>}/>
-          <Route path={"/terms-and-conditions"} element={<TermsAndConditions/>}/>
-          <Route path={"/properties"} element={<Properties/>}/>
-          <Route path={"/about"} element={<About/>}/>
-          <Route path={"/faqs"} element={<Faqs/>}/>
-          <Route path={"*"} element={<LoginPage/>}/>
-          <Route path={"/signup"} element={<Faqs/>}/>
-          <Route path={"/description/:id"} element={<DescriptionPage/>}/>
       </Routes>
     </div>
   )

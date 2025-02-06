@@ -20,7 +20,7 @@ const Footer =()=>{
                 <p>Resource Center</p>
                 <p></p>
             </div>
-            <div className={"flex flex-col gap-5"}>
+            <div className={"flex flex-col "}>
                 <div> Contact support</div>
 
             </div>

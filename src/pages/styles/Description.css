@@ -10,3 +10,23 @@
 .property__amenities>*{
     margin-top: 8px;
 }
+@media  screen and (max-width: 768px) {
+    .description__page{
+        width: 100%;
+        margin-top: 115px;
+    }
+    .overview__tabs{
+        padding: 2px;
+    }
+    .name__holder{
+        width: 100%;
+    }
+    .house__items{
+        gap: 6px;
+        line-height: 1.5;
+        width: 100%;
+    }
+    .review__input{
+        width: 100%;
+    }
+}

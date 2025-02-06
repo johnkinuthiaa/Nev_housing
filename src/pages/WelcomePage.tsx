@@ -8,15 +8,6 @@ import "./styles/welcomePage.css"
 import Card from "../components/Card.tsx";
 
 
-interface CardProps{
-    imageUrl:string,
-    title:string,
-    location:string,
-    description:string,
-    price:number,
-    // houthefak
-    id:number
-}
 const WelcomePage =()=>{
     const [housesInNairobi,setHousesInNairobi] =useState<string[]>([])
     const LOCATION_BASE_URL ="http://localhost:8080/api/v1/listings/get/location?location=rongai"
@@ -64,7 +55,7 @@ const WelcomePage =()=>{
                 <div className={"heading__container flex flex-col w-[40%]"}>
                     <h1 className={"heading text-7xl font-bold text-[rgb(0,0,0,0.7)]"}>Find The Best Apartments for you</h1>
                     <button
-                        className={" bg-black text-white pt-2 pb-2 pl-4 pe-4 rounded-2xl w-fit mt-10 justify-center content-center hover:bg-[rgb(0,0,0,0.5]"}
+                        className={" bg-black text-white pt-2 pb-2 pl-4 pe-4 rounded-2xl w-fit mt-16 flex items-center justify-center content-center hover:bg-[rgb(0,0,0,0.5]"}
                         onClick={()=>navigate("/properties")}
                     >
                         Explore

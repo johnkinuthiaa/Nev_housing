@@ -12,8 +12,6 @@ import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import CategoryIcon from '@mui/icons-material/Category';
 import InfoIcon from '@mui/icons-material/Info';
 
-
-
 const DescriptionPage =()=>{
     const url =window.location.href
     const endpoint =url.match(/[^/]+$/)
@@ -60,7 +58,7 @@ const DescriptionPage =()=>{
 
 
     return(
-        <motion.div className={"bg-[white] shadow-2xl rounded-2xl mt-28 p-3 flex flex-col m-auto w-[60%] h-full"}
+        <motion.div className={"description__page bg-[white] shadow-2xl rounded-2xl mt-28 p-3 flex flex-col m-auto w-[60%] h-full"}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -74,7 +72,7 @@ const DescriptionPage =()=>{
             </div>
             <div className={"flex flex-col"}>
                 <h1 className={"text-4xl font-bold text-[#5271ff] mt-3 mb-3"}>{propertyInfo.name}</h1>
-                <div className={"flex justify-between w-[50%] mt-4 mb-4 items-center"}>
+                <div className={"name__holder flex justify-between w-[50%] mt-4 mb-4 items-center"}>
                     <div className={"flex flex-col gap-4"}>
                         <p className={"font-light"}><RoomIcon/>{propertyInfo?.location}</p>
                         <p className={"font-bold"}><AccessTimeIcon/> {propertyInfo?.createdAt?.toString().substring(0,10)} <span className={"ml-2 text-gray-600"}>{propertyInfo?.createdAt?.toString().substring(11,19)} hrs</span> </p>
@@ -83,7 +81,7 @@ const DescriptionPage =()=>{
                         <p className={"font-extrabold"}>Ksh <span className={"text-2xl"}>{propertyInfo.regularPrice}</span><span className={"font-bold text-gray-700"}> /month</span></p>
                     </div>
                 </div>
-                <div className={"flex justify-between items-center p-5 "}>
+                <div className={"overview__tabs flex justify-between p-5 "}>
                     <h2 className={"cursor-pointer text-2xl font-bold"} onClick={()=>{
                         setContent("overview")
                     }}>Overview</h2>
@@ -104,8 +102,8 @@ const DescriptionPage =()=>{
                             <div className={"flex items-center "}><p className={"text-[#ff914d] font-bold "}><InfoIcon/> Status: <span className={"font-normal text-black"}>{propertyInfo.status}</span></p></div>
                             <p className={"font-bold text-[#ff914d]"}> <PetsIcon/> Pet Policy: <span className={"font-normal text-black "}>{propertyInfo.petPolicy}</span></p>
                             <div className={"flex gap-2 flex-col"}>
-                                <p className={"font-bold text-[#ff914d]"}><CategoryIcon/>Appliances:</p>
-                                <div className={"flex gap-5 flex-wrap ml-14"}>
+                                <p className={" font-bold text-[#ff914d]"}><CategoryIcon/>Appliances:</p>
+                                <div className={"appliances flex gap-5 flex-wrap ml-14"}>
                                     {propertyInfo?.appliancesIncluded?.map((appliance:string)=>(
                                         <div>{appliance}</div>
                                     ))}
@@ -121,7 +119,7 @@ const DescriptionPage =()=>{
                                 </div>
                             </div>
                         </div>
-                        <div className={"flex flex-wrap gap-5 w-[60%] features mb-2 mt-3"}>
+                        <div className={"house__items flex flex-wrap gap-5 w-[60%] features mb-2 mt-3"}>
                             <div><Bed/>{propertyInfo.bedrooms} Beds</div>
                             <div><Bathroom/>{propertyInfo.bathrooms} Bathrooms</div>
                             <div><CountertopsIcon/>{propertyInfo.kitchen} kitchens</div>
@@ -145,7 +143,7 @@ const DescriptionPage =()=>{
                                 </div>
                             ))}
                         </div>
-                        <form className={"flex flex-col w-[50%] mt-10"}
+                        <form className={"review__input flex flex-col w-[50%] mt-10"}
                               onSubmit={(e)=>{
                                   e.preventDefault()
                                   sendReview()

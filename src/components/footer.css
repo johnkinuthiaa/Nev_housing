@@ -3,12 +3,11 @@
         width: 100%;
         align-items: center;
         padding: 2px;
-        margin-top: 30px;
+        gap: 10px;
+        margin: 2px;
         font-size: 12px;
         justify-content: space-between;
-        position: relative;
-        bottom: 0;
-
+        
     }
     footer>div{
         width: max-content;

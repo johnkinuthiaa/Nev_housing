@@ -67,11 +67,11 @@ const WelcomePage =()=>{
             </section>
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>
                 <p className={"font-bold text-4xl w-[400px] flex flex-col items-center leading-8"}>Newest Homes in <span className={"text-red-600"}>Nairobi</span></p>
-                <div className={"new__property__listings flex overflow-scroll scroll-smooth gap-2"}>
-                    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:string)=>(
-                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
-                    ))}
-                </div>
+                {/*<div className={"new__property__listings flex overflow-scroll scroll-smooth gap-2"}>*/}
+                {/*    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:string)=>(*/}
+                {/*        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
                 <button className={"w-fit p-3 bg-green-600 hover:bg-green-500 transition-all ease-in duration-75 mt-5 rounded-full font-bold text-white"}
                         onClick={()=>navigate("/properties")}
                 >Explore All homes</button>

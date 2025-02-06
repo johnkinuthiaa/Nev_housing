@@ -10,7 +10,7 @@
 .property__amenities>*{
     margin-top: 8px;
 }
-@media  screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .description__page{
         width: 100%;
         margin-top: 115px;

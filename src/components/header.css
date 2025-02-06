@@ -3,7 +3,6 @@ header{
     justify-content: space-between;
     padding: 25px 20px;
     align-items: center;
-    /*margin-top: 10px;*/
 
 }
 header>nav>ul{
@@ -33,9 +32,40 @@ nav>ul>li{
 .profile__info__container{
     margin-right: 5px;
 }
-@media screen and(max-width: 768px){
-    header{
+.mobile__menu{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .mobile__navigation {
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(0); /* Default position */
+    }
+
+    .mobile__navigation.hidden {
+        transform: translateY(-100%); /* Move out of view */
+    }
+    .desktop__nav{
         display: none;
     }
+    .mobile__menu{
+        display: unset;
+    }
+    header{
+        justify-content: space-between;
+    }
+    .profile__info__container{
+        margin: 2px;
+    }
+    .profile__info__container>*{
+        font-size: small;
+        padding: 5px;
+        display: flex;
+        align-items: flex-start;
+    }
+    .logo{
+        font-weight: bold;
+    }
+
 }
+
 

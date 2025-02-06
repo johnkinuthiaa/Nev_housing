@@ -1,4 +1,4 @@
-import "./Login.css"
+import "./styles/Login.css"
 import { FcGoogle } from "react-icons/fc";
 import {useState} from "react";
 import {useNavigate} from "react-router";

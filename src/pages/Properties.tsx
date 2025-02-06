@@ -78,7 +78,7 @@ const Properties =()=>{
 
                     </div>
             </div>
-            <aside className={"w-[25%] ml-2.5 mr-4 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full scroll-mt-0"}>
+            <aside className={"w-[25%] ml-2.5 mr-4 p-3 flex flex-col rounded-xl shadow-2xl fixed right-0 h-full scroll-mt-0 "}>
                 <h1 className={"text-2xl font-bold text-[#ff914d]"}>Filter Properties</h1>
                 <form className={"flex flex-wrap gap-6 mt-2"}>
                     <fieldset className={" leading-7"}>

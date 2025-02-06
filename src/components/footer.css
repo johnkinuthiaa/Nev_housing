@@ -1,0 +1,22 @@
+@media screen and (max-width: 678px){
+    footer{
+        width: 100%;
+        align-items: center;
+        padding: 2px;
+        margin-top: 30px;
+        font-size: 12px;
+        justify-content: space-between;
+        position: relative;
+        bottom: 0;
+
+    }
+    footer>div{
+        width: max-content;
+        align-items: center;
+        justify-content: center;
+    }
+    footer>div>.heading__item {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

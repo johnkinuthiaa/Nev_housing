@@ -3,7 +3,7 @@ import AboutCard from "../components/AboutCard.tsx";
 
 const About =()=>{
     return(
-        <div className={"about p-20 content-center justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
+        <div className={"mt-16 sm:mt-5 about p-20 content-center sm:content-none justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
             <section className={"flex-col flex w-[50%] ml-[5%] justify-center content-center text-2xl mb-9"}>
                 <h1 className={"font-extrabold text-4xl mb-6 text-[#ff914d]"}>About Us</h1>
                 <p className={"leading-10"}>At Nevani, we understand that house hunting can be overwhelming.

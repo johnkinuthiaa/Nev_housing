@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import RoomIcon from '@mui/icons-material/Room';
 import Order from "../components/Order.tsx";
 import {Bathroom, Bed, DirectionsCar, FitnessCenter, Waves} from "@mui/icons-material";
-import "./Description.css"
+import "./styles/Description.css"
 import * as motion from "motion/react-client"
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CountertopsIcon from '@mui/icons-material/Countertops';

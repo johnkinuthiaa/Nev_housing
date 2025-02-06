@@ -10,7 +10,8 @@
     box-sizing: border-box;
 }
 .app{
-    /*background:linear-gradient(160deg ,#356dbe,#f6f6f6);*/
+    /*background:linear-gradient(200deg ,#356dbe,#f6f6f6);*/
+    /*height: max-content;*/
 
 }
 label{

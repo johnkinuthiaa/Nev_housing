@@ -33,4 +33,7 @@ nav>ul>li{
 .profile__info__container{
     margin-right: 5px;
 }
+@media screen and(max-width: 768px){
+
+}
 

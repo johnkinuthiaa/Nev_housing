@@ -5,7 +5,7 @@ header{
     align-items: center;
 
 }
-header>nav>ul{
+header>.desktop__nav>nav>ul{
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -18,7 +18,7 @@ nav>ul>li{
     font-size: 26px;
     font-weight: bolder;
 }
-.header>nav>ul>*{
+.header>.desktop__nav>nav>ul>*{
     cursor: pointer;
     font-size: 19px;
 
@@ -35,15 +35,30 @@ nav>ul>li{
 .mobile__menu{
     display: none;
 }
+.mobile__navigation{
+   display: none;
+}
 @media screen and (max-width: 768px){
-    .mobile__navigation {
-        transition: transform 0.3s ease-in-out;
-        transform: translateY(0); /* Default position */
+    .mobile__navigation{
+        display: unset;
+        transition: all ease-out;
+    }
+    .mobile__navigation>nav>ul{
+        position: fixed;
+        z-index: 999;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 130%;
+        height: 100%;
+        padding: 10px;
+
+    }
+    .mobile__navigation>nav>ul>li{
+        cursor: pointer;
     }
 
-    .mobile__navigation.hidden {
-        transform: translateY(-100%); /* Move out of view */
-    }
     .desktop__nav{
         display: none;
     }

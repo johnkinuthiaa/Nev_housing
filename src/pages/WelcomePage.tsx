@@ -5,7 +5,7 @@ import Footer from "../components/Footer.tsx";
 import {useState} from "react";
 import useSWR from "swr";
 import "./styles/welcomePage.css"
-import Card from "../components/Card.tsx";
+
 
 
 const WelcomePage =()=>{

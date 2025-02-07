@@ -59,7 +59,7 @@ const Properties =()=>{
     //     return <div className={"text-center flex justify-center font-bold text-red-600 mt-40"}>Error fetching data...</div>
     // }
     return(
-        <div className={"properties__container__main flex p-7 mt-16"}>.
+        <div className={"properties__container__main flex p-7 mt-16"}>
             <div className={"properties__container w-[75%] p-10 bg-white text-black h-screen flex flex-col "}>
                 <form onSubmit={(e)=> {
                     e.preventDefault()

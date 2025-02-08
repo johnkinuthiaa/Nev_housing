@@ -1,4 +1,4 @@
-import "./footer.css"
+import "./styles/footer.css"
 const Footer =()=>{
     return(
         <footer className={"footer flex items-center w-[80%] m-auto justify-between"}>

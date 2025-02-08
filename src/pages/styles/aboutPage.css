@@ -1,0 +1,31 @@
+@media  screen and (max-width: 768px) {
+    .about__container{
+        margin-top: 10px;
+        padding: 5px;
+        width: 100%;
+    }
+    .about__us{
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        font-size: 18px;
+
+        width: 100%;
+    }
+    .why__choose_us>h1{
+        margin-top: 10px;
+    }
+    .why__choose_us{
+        width: 100%;
+        margin: 0;
+    }
+    .about__card{
+        margin: 8px;
+        padding: 10px;
+        font-size: 18px;
+        height: fit-content;
+        width: 100%
+    }
+
+}

@@ -62,7 +62,7 @@ const WelcomePage =()=>{
                     </button>
                 </div>
                 <div>
-                    <img src={"https://i.pinimg.com/236x/b9/56/35/b956350c800b9d33c5e529bda8ee5e7e.jpg"} className={"w-[500px] h-[600px] object-contain rounded-2xl"}/>
+                    <img src={"https://i.pinimg.com/236x/b9/56/35/b956350c800b9d33c5e529bda8ee5e7e.jpg"} className={"w-[450px] h-[600px] object-fit rounded-2xl mt-4"}/>
                 </div>
             </section>
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>

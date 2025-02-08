@@ -1,10 +1,11 @@
 import {aboutInfo} from "./AboutInfo.ts"
 import AboutCard from "../components/AboutCard.tsx";
+import "./styles/aboutPage.css"
 
 const About =()=>{
     return(
-        <div className={"mt-16 sm:mt-5 about p-20 content-center sm:content-none justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
-            <section className={"flex-col flex w-[50%] ml-[5%] justify-center content-center text-2xl mb-9"}>
+        <div className={"about__container mt-28 p-20 content-center justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
+            <section className={"about__us flex-col flex w-[50%] ml-[5%] justify-center content-center text-2xl mb-9"}>
                 <h1 className={"font-extrabold text-4xl mb-6 text-[#ff914d]"}>About Us</h1>
                 <p className={"leading-10"}>At Nevani, we understand that house hunting can be overwhelming.
                     The process of finding the perfect home involves numerous decisions, from choosing the right neighborhood
@@ -12,7 +13,7 @@ const About =()=>{
                     Our platform offers a wealth of resources designed to empower you in your search for the ideal property.
                 </p>
             </section>
-            <section className={"flex flex-col ml-20" }>
+            <section className={"why__choose_us flex flex-col ml-20" }>
                 <h1 className={"font-extrabold text-4xl text-[#ff914d]"}>Why Choose Us?</h1>
                 <div className={"flex flex-wrap gap-3 mt-10 leading-9 "}>
                     {aboutInfo.map(({title,content})=>(

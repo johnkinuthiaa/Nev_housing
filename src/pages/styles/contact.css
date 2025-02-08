@@ -1,0 +1,18 @@
+@media  screen and (max-width: 768px){
+    .contact__page{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .contact__info{
+        width: 100%;
+    }
+    .contact__page>div>form{
+        width: 100%;
+    }
+    .form_names__holder{
+        width: 100%;
+    }
+    .form_names__holder>input{
+        width: 50%;
+    }
+}

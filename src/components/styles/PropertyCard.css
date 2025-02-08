@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+
+    img{
+
+    }
+    .card__placeholder{
+        margin-left: 10px;
+        width: 92% !important;
+        display: flex;
+        justify-content: center;
+
+    }
+    .card__placeholder>div>p{
+        font-size:18px;
+    }
+    .price{
+        font-size: 10px;
+        font-weight: 600;
+    }
+    .card__price__holder{
+
+    }
+}
+@media (min-width:1100px) { body {font-size:1.5rem;} }

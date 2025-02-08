@@ -1,5 +1,6 @@
 header{
     display: flex;
+    position: fixed;
     justify-content: space-between;
     padding: 25px 20px;
     align-items: center;
@@ -32,54 +33,36 @@ nav>ul>li{
 .profile__info__container{
     margin-right: 5px;
 }
-.mobile__menu{
+.mobile__menu,.mobile__navigation{
     display: none;
 }
-.mobile__navigation{
-   display: none;
-}
+
 @media screen and (max-width: 768px){
-    .mobile__navigation{
-        display: unset;
-        transition: all ease-out;
-    }
-    .mobile__navigation>nav>ul{
-        position: fixed;
-        z-index: 999;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        width: 130%;
-        height: 100%;
-        padding: 10px;
-
-    }
-    .mobile__navigation>nav>ul>li{
-        cursor: pointer;
-    }
-
     .desktop__nav{
         display: none;
     }
-    .mobile__menu{
-        display: unset;
-    }
-    header{
-        justify-content: space-between;
-    }
-    .profile__info__container{
-        margin: 2px;
-    }
-    .profile__info__container>*{
-        font-size: small;
-        padding: 5px;
+    .mobile__menu,.mobile__navigation{
         display: flex;
-        align-items: flex-start;
     }
-    .logo{
-        font-weight: bold;
+    .mobile__navigation{
+        position: absolute;
+        z-index: 999;
+        background-color: white;
+        padding: 20px;
+        width: 60%;
+        height: 100%;
+
     }
+    .mobile__navigation>ul>li{
+        cursor: pointer;
+    }
+    .mobile__navigation>ul{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+    }
+
 
 }
 

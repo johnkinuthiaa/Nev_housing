@@ -1,9 +1,16 @@
 @media (min-width: 640px) { body {font-size:1rem;} }
-@media (min-width:1100px) { body {font-size:1.2rem;} }
-@media screen and (max-width:769px){
+@media (min-width:1100px) { body {font-size:1rem;} }
+fieldset>div>label{
+    font-size: medium;
+}
+@media screen and (max-width:768px){
     .properties__container__main{
         padding: 2px;
-        margin-top: 100px;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+    .filter__container{
+        display: none;
     }
     .properties__container{
         width: 100%;

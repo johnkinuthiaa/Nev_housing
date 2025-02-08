@@ -2,7 +2,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {useNavigate} from "react-router";
 import * as motion from "motion/react-client"
 import StarIcon from '@mui/icons-material/Star';
-import "./PropertyCard.css"
+import "./styles/PropertyCard.css"
 
 interface CardProps{
     imageUrl:string,
@@ -10,7 +10,6 @@ interface CardProps{
     location:string,
     description:string,
     price:number,
-    // houthefak
     id:string
 }
 
@@ -35,9 +34,9 @@ const Card =({imageUrl,title,location,price,id}:CardProps)=>{
                     <p className={"font-bold text-2xl "}>{title}</p>
                     <h3 className={"text-blue-700"}><LocationOnIcon/><span className={"text-gray-700 font-semibold mb-2"}> {location}</span> </h3>
                 </div>
-                <div className={"flex justify-between items-center mt-2"}>
-                    <h2 className={"font-bold text-xl"}>Ksh {price} <span className={"text-gray-600 font-light"}>/month</span></h2>
-                    <h2><span className={"text-yellow-500"}><StarIcon/></span>Ratings</h2>
+                <div className={"card__price__holder flex justify-between items-center mt-2"}>
+                    <p className={"price font-bold text-xl"}>Ksh {price} <span className={"text-gray-600 font-light"}>/month</span></p>
+                    <p><span className={"text-yellow-500"}><StarIcon/></span>2/5</p>
                 </div>
             </div>
         </motion.div>

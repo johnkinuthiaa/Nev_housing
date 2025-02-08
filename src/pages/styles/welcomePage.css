@@ -1,22 +1,22 @@
 .new__property__listings>*{
     width: 100%;
 }
-@media  screen and (max-width: 678px) {
+@media  screen and (max-width: 768px) {
     main{
-        /*display: flex;*/
-        justify-content: space-evenly;
+        display: flex;
+        justify-content: space-between;
         align-items: flex-start;
         width: 100%;
         padding: 3px;
         margin: 0;
         scroll-behavior: smooth;
-
     }
+
     .home{
         padding: 2px;
         display: flex;
         flex-direction: column;
-        margin-top: 150px;
+        margin-top: 20px;
         width: 100%;
     }
     .home>div{
@@ -27,14 +27,14 @@
         font-size: 30px;
         line-break: strict;
         line-height: 1.4;
-        width: 80%;
+        width: 100%;
     }
     .home>div>p{
         font-weight: normal;
         font-size: 20px;
     }
     .home>div>img{
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         height: 300px;
     }
     #property{

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./styles/contact.css"
 
 const ContactPage =()=>{
     const [firstName,setFirstName] =useState<string>("")
@@ -33,9 +34,9 @@ const ContactPage =()=>{
     })
     // @ts-expect-error
     return(
-        <div className={"p-3 flex flex-col content-center justify-center w-[30%] m-auto leading-8 mt-28 "}>
+        <div className={"contact__page p-3 flex flex-col content-center justify-center w-[30%] m-auto leading-8 mt-28 "}>
            <p className={"font-bold text-4xl mt-4 text-[#5271ff]"}>Contact our team</p>
-            <p className={"break-word w-[80%] mt-2 text-xl"}>Got any questions about the products or our platform in general?
+            <p className={"contact__info break-word w-[80%] mt-2 text-xl"}>Got any questions about the products or our platform in general?
                 We're here to help.Contact our friendly team 24/7 and get onboard in less than 5 minutes
             </p>
             <div className={"flex mt-4"}>
@@ -43,7 +44,7 @@ const ContactPage =()=>{
                     e.preventDefault()
                     sendEmail()
                 }}>
-                    <div className={"flex gap-2 "}>
+                    <div className={"form_names__holder flex gap-2 "}>
                         <input type={"text"} placeholder={"First name"} className={"border border-gray-600 rounded-2xl p-1 mt-4"} required={true} onChange={(e)=>setFirstName(e.target.value)}/>
                         <input type={"text"} className={"border border-gray-600 rounded-2xl p-1 mt-4 "} placeholder={"Last name"} required={true} onChange={(e)=>setLastName(e.target.value)}/>
 

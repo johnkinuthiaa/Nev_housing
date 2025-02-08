@@ -3,11 +3,12 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import "./styles/faqs.css"
 
 
 const Faqs =()=>{
     return(
-        <div className={"faqs flex flex-col w-[50%] rounded-3xl shadow-2xl content-center justify-center ml-[25%] mt-10 scroll-smooth "}>
+        <div className={"faqs flex flex-col w-[50%] rounded-3xl shadow-2xl content-center justify-center ml-[25%] mt-24 scroll-smooth "}>
             <Accordion >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

@@ -4,15 +4,16 @@ import useSWR from "swr";
 import Loading from "../components/Loading.tsx";
 import "./styles/properties.css"
 
+
 const Properties =()=>{
 
-    const PROPERTY_URL:string ="http://localhost:8080/api/v1/listings/all"
+    const PROPERTY_URL ="http://localhost:8080/api/v1/listings/all"
 
-    const[location,setLocation] =useState<string>("")
+    const[location,setLocation] =useState("")
     // const[filters,setFilters] =useState<number>(0)
     // const[bathrooms,setBathrooms] =useState<number>(0)
     // const[bedrooms,setBedrooms] =useState<number>(0)
-    const[property,setProperty] =useState<string[]>([])
+    const[property,setProperty] =useState([])
     const LOCATION_SEARCH =`http://localhost:8080/api/v1/listings/get/location?location=${location}`
 
 
@@ -58,6 +59,8 @@ const Properties =()=>{
     // if(error){
     //     return <div className={"text-center flex justify-center font-bold text-red-600 mt-40"}>Error fetching data...</div>
     // }
+
+
     return(
         <div className={"properties__container__main flex p-7"}>
             <div className={"properties__container w-[75%] p-10 bg-white text-black h-screen flex flex-col "}>
@@ -74,7 +77,7 @@ const Properties =()=>{
                     <button type={"submit"}  className={"font-bold text-white bg-black p-3 rounded-2xl"}>Search</button>
                 </form>
                 <div className={"card__holder mt-12 flex flex-wrap gap-4 sm:w-full pb-4"}>
-                    {property.map(({name,description,location,imgUrl,regularPrice,id}:string)=>(
+                    {property.map(({name,description,location,imgUrl,regularPrice,id})=>(
                         <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
                     ))}
 

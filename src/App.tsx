@@ -4,7 +4,7 @@ import {Route, Routes, useNavigate} from "react-router";
 import ContactPage from "./pages/ContactPage.tsx";
 import WelcomePage from "./pages/WelcomePage.tsx";
 import Headers from "./components/Headers.tsx";
-import Properties from "./pages/Properties.tsx";
+import Properties from "./pages/Properties.jsx";
 import About from "./pages/About.tsx";
 import Faqs from './pages/Faqs.tsx';
 import DescriptionPage from "./pages/DescriptionPage.tsx";

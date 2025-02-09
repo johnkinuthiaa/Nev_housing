@@ -1,5 +1,4 @@
 import { NavigateFunction, useNavigate} from "react-router";
-import * as motion from "motion/react-client"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import "./styles/header.css"

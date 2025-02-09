@@ -41,6 +41,9 @@ nav>ul>li{
     .desktop__nav{
         display: none;
     }
+    .profile__info__container__desktop{
+        display: none;
+    }
     .mobile__menu,.mobile__navigation{
         display: flex;
     }

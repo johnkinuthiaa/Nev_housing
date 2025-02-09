@@ -20,6 +20,7 @@ fieldset>div>label{
         width: 100%;
         display: flex;
         gap:8px;
+
     }
     .search__container{
         width: 100%;

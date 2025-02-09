@@ -25,6 +25,10 @@ const Headers =()=>{
                     </ul>
                 </nav>
             </div>
+            <div className={"profile__info__container__desktop flex gap-2"}>
+                <button className={"profile__info border rounded-2xl font-bold"} onClick={()=>navigate("/register")}>Sign up</button>
+                <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in</button>
+            </div>
             <div className={"mobile__menu"}>
                 {isMenuOpen?
                     <button onClick={()=>setIsMenuOpen(!isMenuOpen)}>

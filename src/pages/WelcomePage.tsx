@@ -6,7 +6,8 @@ import {useState} from "react";
 import useSWR from "swr";
 import "./styles/welcomePage.css"
 
-import Loading from "../components/Loading.tsx";
+import lovelyImage from 'src/assets/image.png'
+
 import Card from "../components/Card.tsx";
 
 
@@ -52,7 +53,7 @@ const WelcomePage =()=>{
                     <button className={"rounded-3xl p-4 bg-black text-white font-bold w-fit mt-10"} >catalogue</button>
                 </div>
                 <div>
-                    <img src={"https://i.pinimg.com/236x/72/e0/41/72e041cdc97711fd10e5352551fe7d7d.jpg"} className={"w-full h-screen object-cover "}/>
+                    <img src={lovelyImage} className={"w-full h-screen object-cover "}/>
                 </div>
 
             </motion.section>

@@ -28,7 +28,7 @@ const WelcomePage =()=>{
     })
     const{isLoading} =useSWR(LOCATION_BASE_URL,getLatestInNairobi)
     if(isLoading){
-        return <div className={"animate-spin border border-b-red-700 rounded-full p-4"}></div>
+        return <div className={"animate-bounce"} >Loading...</div>
     }
 
     return(

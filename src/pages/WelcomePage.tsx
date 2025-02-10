@@ -6,10 +6,12 @@ import {useState} from "react";
 import useSWR from "swr";
 import "./styles/welcomePage.css"
 
+import Loading from "../components/Loading.tsx";
+import Card from "../components/Card.tsx";
 
 
 const WelcomePage =()=>{
-    const [housesInNairobi,setHousesInNairobi] =useState<string[]>([])
+    const [housesInNairobi,setHousesInNairobi] =useState<never[]>([])
     const LOCATION_BASE_URL ="http://localhost:8080/api/v1/listings/get/location?location=rongai"
     const navigate =useNavigate()
 
@@ -26,6 +28,9 @@ const WelcomePage =()=>{
         }
     })
     const{isLoading} =useSWR(LOCATION_BASE_URL,getLatestInNairobi)
+    if(isLoading){
+        return <Loading />
+    }
 
     return(
         <>
@@ -67,11 +72,11 @@ const WelcomePage =()=>{
             </section>
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>
                 <p className={"font-bold text-4xl w-[400px] flex flex-col items-center leading-8"}>Newest Homes in <span className={"text-red-600"}>Nairobi</span></p>
-                {/*<div className={"new__property__listings flex overflow-scroll scroll-smooth gap-2"}>*/}
-                {/*    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:string)=>(*/}
-                {/*        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>*/}
-                {/*    ))}*/}
-                {/*</div>*/}
+                <div className={"new__property__listings flex overflow-scroll scroll-smooth gap-2"}>
+                    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:never)=>(
+                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
+                    ))}
+                </div>
                 <button className={"w-fit p-3 bg-green-600 hover:bg-green-500 transition-all ease-in duration-75 mt-5 rounded-full font-bold text-white"}
                         onClick={()=>navigate("/properties")}
                 >Explore All homes</button>

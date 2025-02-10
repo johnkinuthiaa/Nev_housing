@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import "./styles/header.css"
 import {useState} from "react";
+import * as motion from "motion/react-client"
 
 const Headers =()=>{
 
@@ -42,7 +43,15 @@ const Headers =()=>{
             </div>
         </header>
             {isMenuOpen&&
-                <nav className={"mobile__navigation shadow-2xl"}>
+                <motion.nav className={"mobile__navigation shadow-2xl"}
+                     initial={{ opacity: 0, scale: 0.5 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     transition={{
+                         duration: 0.8,
+                         delay: 0.2,
+                         ease: [0, 0.71, 0.2, 1.01],
+                     }}
+                >
                     <ul >
                         <li onClick={()=> {
                             navigate("/")
@@ -67,14 +76,20 @@ const Headers =()=>{
                         }}>Faqs</li>
 
                         <div className={"profile__info__container flex gap-2"}>
-                            <button className={"profile__info border rounded-2xl font-bold"} onClick={()=>navigate("/register")}>Sign up</button>
-                            <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in</button>
+                            <button className={"profile__info border rounded-2xl font-bold"} onClick={()=> {
+                                navigate("/register")
+                                setIsMenuOpen(false)
+                            }}>Sign up</button>
+                            <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=> {
+                                navigate("/login")
+                                setIsMenuOpen(false)
+                            }}>Log in</button>
                         </div>
                     </ul>
                     <button className={"absolute top-5 right-0 ml-5 rounded-full text-white bg-red-500 p-1"} onClick={()=>{
                         setIsMenuOpen(false)
                     }}><CloseIcon/></button>
-                </nav>
+                </motion.nav>
             }
         </>
     )

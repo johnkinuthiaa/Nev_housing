@@ -4,6 +4,7 @@ import {FcGoogle} from "react-icons/fc";
 import Loading from "../components/Loading.tsx";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import "./styles/Login.css"
 
 const Register =()=>{
     const REGISTRATION_URL ="http://localhost:8080/api/v1/users/register"
@@ -43,8 +44,8 @@ const Register =()=>{
         <div className={"w-full h-full login__container mt-10  flex justify-center bg-[whitesmoke]"}>
 
             {/*<img src={"/src/assets/login.webp"} className={"-ml-20"}/>*/}
-            <img src={"https://i.pinimg.com/236x/56/8e/a8/568ea8bc5b2b7661714f0e3b8697e300.jpg"} className={"w-[500px] h-[600px] rounded-2xl"}/>
-            <div className={"flex flex-col gap-4 shadow-2xl bg-white p-5 ml-10 rounded-2xl w-[500px]"}>
+            <img src={"https://i.pinimg.com/236x/56/8e/a8/568ea8bc5b2b7661714f0e3b8697e300.jpg"} className={"login__image w-[500px] h-[600px] rounded-2xl"}/>
+            <div className={"login__form__holder flex flex-col gap-4 shadow-2xl bg-white p-5 ml-10 rounded-2xl w-[500px]"}>
                 <div className={"flex text-center flex-col gap-5"}>
                     <p className={"font-bold text-3xl"}>Create A New Account </p>
                     <p className={"text-gray-600"}>Please enter your details</p>

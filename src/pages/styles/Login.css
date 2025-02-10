@@ -2,3 +2,20 @@ input:active{
     outline: none;
 
 }
+@media  screen and (max-width: 900px) {
+    .login__image{
+        display: none;
+    }
+    .login__container{
+        width: 90%;
+        margin:50px auto;
+
+    }
+    .login__form__holder{
+
+        height: 100%;
+        padding: 30px;
+        margin: 0 auto;
+    }
+
+}

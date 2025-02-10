@@ -6,7 +6,7 @@ const ContactPage =()=>{
     const [lastName,setLastName] =useState<string>("")
     const [email,setEmail] =useState<string>("")
     const [message,setMessage] =useState<string>("")
-    const [mobileNumber,setMobileNumber] =useState<number>(0)
+    const [mobileNumber,setMobileNumber] =useState<string>("")
     const SEND_EMAIL_URL =`http://localhost:8080/mail/send?firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}&mobileNumber=${mobileNumber}`
 
     const sendEmail =(async()=>{
@@ -22,7 +22,7 @@ const ContactPage =()=>{
                 console.log("mail sent")
                 setTimeout(()=>{
                     setMessage("")
-                    setMobileNumber(0)
+                    setMobileNumber(" ")
                     setFirstName("")
                     setLastName("")
                     setEmail("")
@@ -32,7 +32,6 @@ const ContactPage =()=>{
             }
         }
     })
-    // @ts-expect-error
     return(
         <div className={"contact__page p-3 flex flex-col content-center justify-center w-[30%] m-auto leading-8 mt-28 "}>
            <p className={"font-bold text-4xl mt-4 text-[#5271ff]"}>Contact our team</p>

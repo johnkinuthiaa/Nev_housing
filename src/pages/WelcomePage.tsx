@@ -29,7 +29,7 @@ const WelcomePage =()=>{
     })
     const{isLoading} =useSWR(LOCATION_BASE_URL,getLatestInNairobi)
     if(isLoading){
-        return <Loading />
+        return <div className={"animate-spin border border-b-red-700 rounded-full p-4"}></div>
     }
 
     return(
@@ -52,7 +52,7 @@ const WelcomePage =()=>{
                     <button className={"rounded-3xl p-4 bg-black text-white font-bold w-fit mt-10"} >catalogue</button>
                 </div>
                 <div>
-                    <img src={"src/assets/image.png"} className={"w-full h-screen object-cover "}/>
+                    <img src={"https://i.pinimg.com/236x/72/e0/41/72e041cdc97711fd10e5352551fe7d7d.jpg"} className={"w-full h-screen object-cover "}/>
                 </div>
 
             </motion.section>

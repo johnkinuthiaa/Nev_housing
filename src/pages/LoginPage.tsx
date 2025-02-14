@@ -5,7 +5,7 @@ import {useNavigate} from "react-router";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 const LoginPage =()=>{
-    const LOGIN_URL ="http://localhost:8080/api/v1/users/login"
+    const LOGIN_URL ="https://nev-backend-migration.onrender.com/api/v1/users/login"
     const[email,setEmail] =useState<string>("")
     const[password,setPassword] =useState<string>("")
     const[jwt,setJwt] =useState<string>("")

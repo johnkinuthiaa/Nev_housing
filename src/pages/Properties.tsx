@@ -7,14 +7,14 @@ import "./styles/properties.css"
 
 const Properties =()=>{
 
-    const PROPERTY_URL ="http://localhost:8080/api/v1/listings/all"
+    const PROPERTY_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/all"
 
     const[location,setLocation] =useState("")
     // const[filters,setFilters] =useState<number>(0)
     // const[bathrooms,setBathrooms] =useState<number>(0)
     // const[bedrooms,setBedrooms] =useState<number>(0)
     const[property,setProperty] =useState([])
-    const LOCATION_SEARCH =`http://localhost:8080/api/v1/listings/get/location?location=${location}`
+    const LOCATION_SEARCH =`https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=${location}`
 
 
     const myHeaders =new Headers()
@@ -52,7 +52,7 @@ const Properties =()=>{
         }
 
     })
-    const{isLoading} =useSWR("http://localhost:8080/api/v1/listings/all",fetchData)
+    const{isLoading} =useSWR("https://nev-backend-migration.onrender.com/api/v1/listings/all",fetchData)
     if(isLoading){
         return <div className={"mt-40 text-center flex justify-center"}><Loading/></div>
     }

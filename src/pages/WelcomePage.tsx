@@ -11,7 +11,7 @@ import Card from "../components/Card.tsx";
 
 const WelcomePage =()=>{
     const [housesInNairobi,setHousesInNairobi] =useState<never[]>([])
-    const LOCATION_BASE_URL ="http://localhost:8080/api/v1/listings/get/location?location=rongai"
+    const LOCATION_BASE_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=rongai"
     const navigate =useNavigate()
 
     const getLatestInNairobi =(async ()=>{

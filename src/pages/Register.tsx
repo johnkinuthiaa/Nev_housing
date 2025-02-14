@@ -7,7 +7,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./styles/Login.css"
 
 const Register =()=>{
-    const REGISTRATION_URL ="http://localhost:8080/api/v1/users/register"
+    const REGISTRATION_URL ="https://nev-backend-migration.onrender.com/api/v1/users/register"
     const[email,setEmail] =useState<string>("")
     const[username,setUsername] =useState<string>("")
     const[password,setPassword] =useState<string>("")

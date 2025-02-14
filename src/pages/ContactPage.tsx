@@ -7,7 +7,7 @@ const ContactPage =()=>{
     const [email,setEmail] =useState<string>("")
     const [message,setMessage] =useState<string>("")
     const [mobileNumber,setMobileNumber] =useState<string>("")
-    const SEND_EMAIL_URL =`http://localhost:8080/mail/send?firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}&mobileNumber=${mobileNumber}`
+    const SEND_EMAIL_URL =`https://nev-backend-migration.onrender.com/mail/send?firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}&mobileNumber=${mobileNumber}`
 
     const sendEmail =(async()=>{
         const response =await fetch(SEND_EMAIL_URL,{

@@ -1,5 +1,4 @@
 .new__property__listings>*{
-    width: 100%;
 }
 @media  screen and (max-width: 768px) {
     main{
@@ -10,6 +9,20 @@
         padding: 3px;
         margin: 0;
         scroll-behavior: smooth;
+    }
+    .new__property__listings{
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        gap: 2px;
+        padding: 2px;
+        width: max-content;
+    }
+    .new__property__listings>*>*{
+        padding: 2px;
     }
 
     .home{

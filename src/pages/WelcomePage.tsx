@@ -2,7 +2,7 @@ import {useNavigate} from "react-router";
 import "./styles/imageAnimation.css"
 import * as motion from "motion/react-client"
 import Footer from "../components/Footer.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import useSWR from "swr";
 import "./styles/welcomePage.css"
 
@@ -13,6 +13,9 @@ const WelcomePage =()=>{
     const [housesInNairobi,setHousesInNairobi] =useState<never[]>([])
     const LOCATION_BASE_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=rongai"
     const navigate =useNavigate()
+    useEffect(()=>{
+        getLatestInNairobi()
+    },[])
 
     const getLatestInNairobi =(async ()=>{
         const response =await fetch(LOCATION_BASE_URL,{
@@ -26,10 +29,7 @@ const WelcomePage =()=>{
             setHousesInNairobi(data.listings)
         }
     })
-    const{isLoading} =useSWR(LOCATION_BASE_URL,getLatestInNairobi)
-    if(isLoading){
-        return <div className={"animate-bounce"} >Loading...</div>
-    }
+
 
     return(
         <>
@@ -71,7 +71,7 @@ const WelcomePage =()=>{
             </section>
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>
                 <p className={"font-bold text-4xl w-[400px] flex flex-col items-center leading-8"}>Newest Homes in <span className={"text-red-600"}>Nairobi</span></p>
-                <div className={"new__property__listings flex overflow-scroll scroll-smooth gap-2"}>
+                <div className={"new__property__listings"}>
                     {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:never)=>(
                         <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
                     ))}

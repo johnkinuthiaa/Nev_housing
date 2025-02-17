@@ -56,7 +56,7 @@ const CreateListing =()=>{
 
     return(
         <div>
-            <input type={"file"} onChange={(e)=>setPropertyImage(e.target.files[0])}/>
+            <input type={"file"} />
             <button type={"submit"} onClick={(e)=>{
                 e.preventDefault()
                 console.log("clicked")

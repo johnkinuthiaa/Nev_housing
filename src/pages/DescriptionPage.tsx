@@ -34,6 +34,7 @@ interface DescriptionProps{
     petPolicy:string,
     status:string
     electricityType:string
+    imageBytes:string
 
 }
 interface ReviewProps{
@@ -43,11 +44,14 @@ interface ReviewProps{
 const DescriptionPage =()=>{
     const url =window.location.href
     const endpoint =url.match(/[^/]+$/)
-    const BASEURL =`https://nev-backend-migration.onrender.com/api/v1/listings/get/id?id=${endpoint}`
+    const BASEURL =`http://localhost:8080/api/v1/listings/get/id?id=${endpoint}`
     const REVIEW_URL =`https://nev-backend-migration.onrender.com/api/v1/reviews/create?userId=4&listingId=${endpoint}`
     const [review,setReview] =useState("")
+    const[reviews,setReviews] =useState<ReviewProps[]>([])
+    const[imageUrl,setImageBytes] =useState("")
     const [content,setContent] =useState("overview")
     const[propertyInfo,setPropertyInfo] =useState<DescriptionProps>({
+        imageBytes: "",
         electricityType: "",
         status: "",
         petPolicy: "",
@@ -66,9 +70,17 @@ const DescriptionPage =()=>{
         parking: false,
         regularPrice: 0,
         swimmingPool: false,
-        imgUrl: ""})
+        imgUrl: ""}
+    )
 
-    const[reviews,setReviews] =useState<ReviewProps[]>([])
+    const byteCharacters =atob(imageUrl?imageUrl:"")
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray]);
+    const myUrl =URL.createObjectURL(blob)
 
     useEffect(() => {
         fetchData()
@@ -85,6 +97,7 @@ const DescriptionPage =()=>{
             const data =await response.json()
             if(data.statusCode ===200){
                 setPropertyInfo(data?.listing)
+                setImageBytes(data?.listing?.imageBytes)
                 setReviews(data?.listing?.reviewsList)
             }
 
@@ -116,7 +129,7 @@ const DescriptionPage =()=>{
                     }}
         >
             <div>
-                <img src={propertyInfo.imgUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
+                <img src={myUrl} className={"rounded-3xl w-[700px] h-[500px] object-fill"}/>
             </div>
             <div className={"flex flex-col"}>
                 <h1 className={"text-4xl font-bold text-[#5271ff] mt-3 mb-3"}>{propertyInfo.name}</h1>

@@ -11,9 +11,20 @@ interface CardProps{
     description:string,
     price:number,
     id:string
+    imageBytes:string
 }
 
-const Card =({imageUrl,title,location,price,id}:CardProps)=>{
+const Card =({imageUrl,title,location,price,id,imageBytes}:CardProps)=>{
+
+    const byteCharacters =atob(imageBytes)
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray]);
+    const myUrl =URL.createObjectURL(blob)
+
     const navigate =useNavigate()
     return(
         <motion.div id={id} onClick={()=>navigate(`/description/${id}`)}
@@ -27,7 +38,7 @@ const Card =({imageUrl,title,location,price,id}:CardProps)=>{
                     className={"card"}
         >
             <div className={"image__container"}>
-                <img src={imageUrl} alt={"property"} className={"property__image rounded-2xl h-[420px] w-[420px] object-fill cursor-pointer  hover:shadow-2xl transform:all ease-out "}/>
+                <img src={myUrl} alt={"property"} className={"property__image rounded-2xl h-[420px] w-[420px] object-fill cursor-pointer  hover:shadow-2xl transform:all ease-out "}/>
             </div>
             <div className={"card__placeholder -mt-36 w-[390px] ml-4 p-2 absolute bg-white rounded-2xl flex flex-col"}>
                 <div className={"flex flex-col border-b-gray-400 border-b rounded-2xl gap-2"}>

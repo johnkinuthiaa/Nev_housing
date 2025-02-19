@@ -21,13 +21,6 @@ const About =()=>{
                     ))}
                 </div>
             </section>
-            {/*<section>*/}
-            {/*    <div>*/}
-            {/*        <p>At [Your Website Name], we are passionate about helping you find not just a house, but a place you can truly call home. We invite you to explore our platform, utilize our resources, and embark on this exciting journey with us. Together, we’ll turn your dream of homeownership into a reality.</p>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-
-
         </div>
     )
 }

@@ -12,8 +12,6 @@ import LoginPage from "./pages/LoginPage.tsx";
 import Register from "./pages/Register.tsx";
 import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 
-
-
 function App() {
     const jwt=sessionStorage.getItem("token")
     const navigate =useNavigate()

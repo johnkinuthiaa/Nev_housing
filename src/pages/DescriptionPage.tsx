@@ -86,6 +86,7 @@ const DescriptionPage =()=>{
         fetchData()
     }, []);
 
+
     const fetchData =(async ()=>{
         const response =await fetch(BASEURL,{
             method:"GET",

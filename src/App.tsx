@@ -19,7 +19,6 @@ function App() {
         navigate("/login")
         return
     }
-
   return (
     <div className={"app"}>
         <Headers/>

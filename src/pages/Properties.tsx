@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Card from '../components/Card.tsx';
 import useSWR from "swr";
 import Loading from "../components/Loading.tsx";
@@ -7,18 +7,23 @@ import "./styles/properties.css"
 
 const Properties =()=>{
 
-    const PROPERTY_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/all"
+    const PROPERTY_URL ="http://localhost:8080/api/v1/listings/all"
 
     const[location,setLocation] =useState("")
     // const[filters,setFilters] =useState<number>(0)
     // const[bathrooms,setBathrooms] =useState<number>(0)
     // const[bedrooms,setBedrooms] =useState<number>(0)
     const[property,setProperty] =useState([])
+    const[imgsrc,setImageSrc] =useState("")
     const LOCATION_SEARCH =`https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=${location}`
-
+    useEffect(() => {
+        fetchData()
+    }, []);
 
     const myHeaders =new Headers()
     myHeaders.append("Content-Type","application/json")
+
+
 
     const fetchData =(async ()=>{
         const response =await fetch(PROPERTY_URL,{
@@ -77,8 +82,8 @@ const Properties =()=>{
                     <button type={"submit"}  className={"font-bold text-white bg-black p-3 rounded-2xl"}>Search</button>
                 </form>
                 <div className={"card__holder mt-12 flex flex-wrap gap-4 sm:w-full pb-4"}>
-                    {property.map(({name,description,location,imgUrl,regularPrice,id})=>(
-                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
+                    {property.map(({name,description,location,imgUrl,regularPrice,id,imageBytes})=>(
+                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id} imageBytes={imageBytes}/>
                     ))}
 
                     </div>

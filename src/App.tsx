@@ -12,6 +12,9 @@ import LoginPage from "./pages/LoginPage.tsx";
 import Register from "./pages/Register.tsx";
 import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 
+import CreateListing from './pages/ADMIN/CreateListing.tsx';
+
+
 function App() {
     const jwt=sessionStorage.getItem("token")
     const navigate =useNavigate()
@@ -35,6 +38,7 @@ function App() {
             <Route path={"/description/:id"} element={<DescriptionPage/>}/>
             <Route path={"/login"} element={<LoginPage/>}/>
             <Route path={"/register"} element={<Register/>}/>
+            <Route path={"/create"} element={<CreateListing/>}/>
       </Routes>
     </div>
   )

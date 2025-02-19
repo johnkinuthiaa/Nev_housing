@@ -1,0 +1,12 @@
+.admin__form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+}
+.listing__creationForm{
+    display: flex;
+    flex-direction: column;
+}

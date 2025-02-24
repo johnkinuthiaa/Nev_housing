@@ -3,16 +3,15 @@ import "./styles/imageAnimation.css"
 import * as motion from "motion/react-client"
 import Footer from "../components/Footer.tsx";
 import {useEffect, useState} from "react";
-import useSWR from "swr";
 import "./styles/welcomePage.css"
 
 import Card from "../components/Card.tsx";
 
-
 const WelcomePage =()=>{
-    const [housesInNairobi,setHousesInNairobi] =useState<never[]>([])
+    const [housesInNairobi,setHousesInNairobi] =useState([])
     const LOCATION_BASE_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=rongai"
     const navigate =useNavigate()
+
     useEffect(()=>{
         getLatestInNairobi()
     },[])
@@ -29,7 +28,6 @@ const WelcomePage =()=>{
             setHousesInNairobi(data.listings)
         }
     })
-
 
     return(
         <>
@@ -72,8 +70,9 @@ const WelcomePage =()=>{
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>
                 <p className={"font-bold text-4xl w-[400px] flex flex-col items-center leading-8"}>Newest Homes in <span className={"text-red-600"}>Nairobi</span></p>
                 <div className={"new__property__listings"}>
-                    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id}:never)=>(
-                        <Card title={name} description={description} imageUrl={imgUrl} location={location} price={regularPrice} id={id}/>
+                    {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id,imageBytes})=>(
+                        <Card title={name} description={description} imageUrl={imgUrl} location={location}
+                              price={regularPrice} id={id} imageBytes={imageBytes}/>
                     ))}
                 </div>
                 <button className={"w-fit p-3 bg-green-600 hover:bg-green-500 transition-all ease-in duration-75 mt-5 rounded-full font-bold text-white"}

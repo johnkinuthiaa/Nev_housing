@@ -14,7 +14,7 @@ interface CardProps{
     imageBytes:string
 }
 
-const Card =({imageUrl,title,location,price,id,imageBytes}:CardProps)=>{
+const Card =({title,location,price,id,imageBytes}:CardProps)=>{
 
     const byteCharacters =atob(imageBytes)
     const byteNumbers = new Array(byteCharacters.length);

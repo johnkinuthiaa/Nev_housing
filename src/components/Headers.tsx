@@ -5,8 +5,11 @@ import "./styles/header.css"
 import {useState} from "react";
 import * as motion from "motion/react-client"
 
-const Headers =()=>{
+import { auth } from "../firebase/firebase.ts";
+import {useAuthState} from "react-firebase-hooks/auth"
 
+const Headers =()=>{
+    const[user] =useAuthState(auth)
     const navigate:NavigateFunction =useNavigate();
     const[isMenuOpen,setIsMenuOpen] =useState(false)
     return(
@@ -26,8 +29,17 @@ const Headers =()=>{
                 </nav>
             </div>
             <div className={"profile__info__container__desktop flex gap-2"}>
-                <button className={"profile__info border rounded-2xl font-bold"} onClick={()=>navigate("/register")}>Sign up</button>
-                <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in</button>
+                {user?
+                    <div className={"flex items-center gap-2"}>
+                        <p className={"font-bold text-xl"}>{user?.displayName}</p>
+                        <img src={user?.photoURL?user?.photoURL:"https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"} alt={"user profile image"} className={"rounded-full w-12 h-12 "}/>
+                    </div>:
+                    <div className={"flex gap-2"}>
+                        <button className={"profile__info border rounded-2xl font-bold"} onClick={()=>navigate("/register")}>Sign up</button>
+                        <button className={"profile__info  rounded-2xl bg-[#5271ff] font-bold text-white"} onClick={()=>navigate("/login")}>Log in</button>
+                    </div>
+                }
+
             </div>
             <div className={"mobile__menu"}>
                 {isMenuOpen?
@@ -76,6 +88,7 @@ const Headers =()=>{
                         }}>Faqs</li>
 
                         <div className={"profile__info__container flex gap-2"}>
+
                             <button className={"profile__info border rounded-2xl font-bold"} onClick={()=> {
                                 navigate("/register")
                                 setIsMenuOpen(false)

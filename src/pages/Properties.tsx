@@ -10,11 +10,8 @@ const Properties =()=>{
     const PROPERTY_URL ="http://localhost:8080/api/v1/listings/all"
 
     const[location,setLocation] =useState("")
-    // const[filters,setFilters] =useState<number>(0)
-    // const[bathrooms,setBathrooms] =useState<number>(0)
-    // const[bedrooms,setBedrooms] =useState<number>(0)
+
     const[property,setProperty] =useState([])
-    const[imgsrc,setImageSrc] =useState("")
     const LOCATION_SEARCH =`https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=${location}`
     useEffect(() => {
         fetchData()
@@ -22,8 +19,6 @@ const Properties =()=>{
 
     const myHeaders =new Headers()
     myHeaders.append("Content-Type","application/json")
-
-
 
     const fetchData =(async ()=>{
         const response =await fetch(PROPERTY_URL,{

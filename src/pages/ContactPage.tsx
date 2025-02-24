@@ -33,7 +33,7 @@ const ContactPage =()=>{
         }
     })
     return(
-        <div className={"contact__page p-3 flex flex-col content-center justify-center w-[30%] m-auto leading-8 mt-28 "}>
+        <div className={"contact__page p-3 flex flex-col content-center justify-center w-[30%] m-auto leading-8 mt-2 "}>
            <p className={"font-bold text-4xl mt-4 text-[#5271ff]"}>Contact our team</p>
             <p className={"contact__info break-word w-[80%] mt-2 text-xl"}>Got any questions about the products or our platform in general?
                 We're here to help.Contact our friendly team 24/7 and get onboard in less than 5 minutes

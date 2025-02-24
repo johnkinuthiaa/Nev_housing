@@ -4,7 +4,7 @@ import "./styles/aboutPage.css"
 
 const About =()=>{
     return(
-        <div className={"about__container mt-28 p-20 content-center justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
+        <div className={"about__container p-20 content-center justify-center text-black flex flex-col bg-[whitesmoke] w-full"}>
             <section className={"about__us flex-col flex w-[50%] ml-[5%] justify-center content-center text-2xl mb-9"}>
                 <h1 className={"font-extrabold text-4xl mb-6 text-[#ff914d]"}>About Us</h1>
                 <p className={"leading-10"}>At Nevani, we understand that house hunting can be overwhelming.

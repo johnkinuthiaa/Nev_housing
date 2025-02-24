@@ -5,6 +5,8 @@ import Loading from "../components/Loading.tsx";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./styles/Login.css"
+import {signInWithPopup} from "firebase/auth"
+import {auth,provider} from "../firebase/firebase.ts"
 
 const Register =()=>{
     const REGISTRATION_URL ="https://nev-backend-migration.onrender.com/api/v1/users/register"
@@ -14,6 +16,16 @@ const Register =()=>{
     const[loading,setLoading] =useState<boolean>(false)
     const[showPassword,setShowPassword] =useState<boolean>(false)
     const navigate =useNavigate()
+
+
+    // Google sign in
+    const signInWithGoogle =async ()=>{
+        const response =await signInWithPopup(auth,provider)
+        if(response){
+            navigate("/")
+        }
+        console.log(response)
+    }
 
     const register =(async ()=>{
         setLoading(true)
@@ -68,7 +80,10 @@ const Register =()=>{
                     </div>
                     <div className={"flex justify-end text-gray-600"}>forgot password?</div>
                     <button className={"flex items-center justify-center rounded-2xl bg-black p-2 text-white w-full font-bold"} type={"submit"}>{loading?<Loading/>:"Register"}</button>
-                    <button className={"flex items-center justify-center rounded-2xl bg-[whitesmoke] p-2 text-black w-full font-bold"} type={"button"}><FcGoogle /> Sign in with Google</button>
+                    <button className={"flex items-center justify-center rounded-2xl bg-[whitesmoke] p-2 text-black w-full font-bold"} type={"button"} onClick={()=>signInWithGoogle()}>
+                        <FcGoogle />
+                        Sign in with Google
+                    </button>
                 </form>
                 <p>Already have an account? <span><a href={"/login"} className={"underline visited:text-purple-800 text-blue-700"}>Login</a></span></p>
             </div>

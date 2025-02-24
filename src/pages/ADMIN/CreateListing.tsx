@@ -30,8 +30,10 @@ interface ListingInfo{
     bedrooms:number
 }
 const CreateListing =()=>{
-    const[propertyImage,setPropertyImage] =useState("")
-    const[property,setProperty] =useState<ListingInfo>({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const[propertyImage,setPropertyImage] =useState<File>("")
+    const[property] =useState<ListingInfo>({
         bedrooms: 0, rooms: 0,
         appliancesIncluded: [],
         bathrooms: 0,
@@ -71,8 +73,10 @@ const CreateListing =()=>{
             body:formData,
             headers:myHeaders
         })
-        const data =await response.json()
-        // console.log(property)
+        if(response.ok){
+            const data =await response.json()
+            alert(data?.message)
+        }
     })
     return(
 
@@ -104,16 +108,16 @@ const CreateListing =()=>{
                 <input type={"text"} onChange={(e)=>property.petPolicy=e.target.value}/>
                 <label>SwimmingPool:</label>
                 <fieldset>
-                    <input type={"radio"} name={"swimmingPool"} value={true} onChange={(e)=>property.swimmingPool=Boolean(e.target.value)}/>
+                    <input type={"radio"} name={"swimmingPool"} value={"true"} onChange={(e)=>property.swimmingPool=Boolean(e.target.value)}/>
                     <label>true</label>
-                    <input type={"radio"} name={"swimmingPool"} value={false} onChange={(e)=>property.swimmingPool=Boolean(e.target.value)}/>
+                    <input type={"radio"} name={"swimmingPool"} value={"false"} onChange={(e)=>property.swimmingPool=Boolean(e.target.value)}/>
                     <label>false</label>
                 </fieldset>
                 <label>Gym:</label>
                 <fieldset>
-                    <input type={"radio"} name={"gym"} value={true} onChange={(e)=>property.gym=Boolean(e.target.value)}/>
+                    <input type={"radio"} name={"gym"} value={"true"} onChange={(e)=>property.gym=Boolean(e.target.value)}/>
                     <label>true</label>
-                    <input type={"radio"} name={"gym"} value={false} onChange={(e)=>property.gym=Boolean(e.target.value)}/>
+                    <input type={"radio"} name={"gym"} value={"false"} onChange={(e)=>property.gym=Boolean(e.target.value)}/>
                     <label>false</label>
                 </fieldset>
                 <label>Parking:</label>

@@ -61,8 +61,6 @@ const CreateListing =()=>{
         yearBuilt: 0
     })
 
-
-
     const myHeaders =new Headers()
     const send =(async ()=>{
         const formData = new FormData();

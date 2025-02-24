@@ -13,15 +13,13 @@ import Register from "./pages/Register.tsx";
 import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 
 import CreateListing from './pages/ADMIN/CreateListing.tsx';
-
-
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext.tsx";
 function App() {
-    const jwt=sessionStorage.getItem("token")
+    const isAuthenticated =useContext(AuthContext)
     const navigate =useNavigate()
-    if(jwt ===""){
-        navigate("/login")
-        return
-    }
+
+    console.log(isAuthenticated)
   return (
     <div className={"app"}>
         <Headers/>

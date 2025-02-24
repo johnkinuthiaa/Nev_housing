@@ -1,11 +1,15 @@
 import "./styles/Login.css"
 import { FcGoogle } from "react-icons/fc";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {useNavigate} from "react-router";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import {AuthContext} from "../context/AuthContext.tsx";
 const LoginPage =()=>{
-    const LOGIN_URL ="https://nev-backend-migration.onrender.com/api/v1/users/login"
+
+    const{loginContext,user,setUser,setUsernameContext, passwordContext, setPasswordContext, emailContext, setEmailContext}=useContext(AuthContext)
+
+    const LOGIN_URL ="http://localhost:8080/api/v1/users/login"
     const[email,setEmail] =useState<string>("")
     const[password,setPassword] =useState<string>("")
     const[jwt,setJwt] =useState<string>("")
@@ -28,14 +32,11 @@ const LoginPage =()=>{
             const data =await response.json()
             if(data.statusCode ===200){
                 setJwt(data?.jwtToken)
-                if(jwt !=""){
-                    console.log(jwt)
-                    sessionStorage.setItem("token",jwt)
-                    navigate("/")
-                }else{
-                    console.log("Jwt not found!!")
-                }
-
+                setUsernameContext(data?.user.username)
+                setUser(data?.user)
+                console.log(data?.user.username)
+                loginContext()
+                navigate("/")
             }else{
                 console.log("error logging you in")
             }
@@ -57,13 +58,15 @@ const LoginPage =()=>{
                         login()
                     }}>
                         <div className={"flex "}>
-                            <input type={"email"} placeholder={"Email"} className={"border-b-2 border-b-gray-500 active:outline-0 w-full ml-2"} required={true} onChange={(e)=>{
+                            <input type={"email"} placeholder={"Email"} className={"border-b-2 border-b-gray-500 active:outline-0 w-full ml-2"} required={true} value={emailContext} onChange={(e)=>{
                                 setEmail(e.target.value)
+                                setEmailContext(e.target.value)
                             }}/>
                         </div>
                         <div className={"flex"}>
-                            <input type={showPassword?"text":"password"} placeholder={"Password"} className={"border-b-2 border-b-gray-500 active:outline-0 w-full"} required={true} onChange={(e)=>{
+                            <input type={showPassword?"text":"password"} placeholder={"Password"} value={passwordContext} className={"border-b-2 border-b-gray-500 active:outline-0 w-full"} required={true} onChange={(e)=>{
                                 setPassword(e.target.value)
+                                setPasswordContext(e.target.value)
                             }}/>
                             <button className={" outline-0 -ml-4"} type={"button"} onClick={()=>setShowPassword(!showPassword)}>{showPassword?<VisibilityIcon/>:<VisibilityOffIcon/>} </button>
                         </div>

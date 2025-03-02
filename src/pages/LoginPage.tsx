@@ -7,9 +7,9 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import {AuthContext} from "../context/AuthContext.tsx";
 const LoginPage =()=>{
 
-    const{loginContext,user,setUser,setUsernameContext, passwordContext, setPasswordContext, emailContext, setEmailContext}=useContext(AuthContext)
+    const{loginContext,setUser,setUsernameContext, passwordContext, setPasswordContext, emailContext, setEmailContext}=useContext(AuthContext)
 
-    const LOGIN_URL ="http://localhost:8080/api/v1/users/login"
+    const LOGIN_URL =import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/users/login"
     const[email,setEmail] =useState<string>("")
     const[password,setPassword] =useState<string>("")
     const[jwt,setJwt] =useState<string>("")
@@ -25,7 +25,8 @@ const LoginPage =()=>{
                 password:password
             }),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         if(response.ok){
@@ -37,6 +38,7 @@ const LoginPage =()=>{
                 console.log(data?.user.username)
                 loginContext()
                 navigate("/")
+                localStorage.setItem("jwtToken",jwt)
             }else{
                 console.log("error logging you in")
             }

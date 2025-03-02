@@ -44,8 +44,8 @@ interface ReviewProps{
 const DescriptionPage =()=>{
     const url =window.location.href
     const endpoint =url.match(/[^/]+$/)
-    const BASEURL =`http://localhost:8080/api/v1/listings/get/id?id=${endpoint}`
-    const REVIEW_URL =`https://nev-backend-migration.onrender.com/api/v1/reviews/create?userId=4&listingId=${endpoint}`
+    const BASEURL =import.meta.env.VITE_BACKEND_BASE_URL+`/api/v1/listings/get/id?id=${endpoint}`
+    const REVIEW_URL =import.meta.env.VITE_BACKEND_BASE_URL+`/api/v1/reviews/create?userId=4&listingId=${endpoint}`
     const [review,setReview] =useState("")
     const[reviews,setReviews] =useState<ReviewProps[]>([])
     const[imageUrl,setImageBytes] =useState("")
@@ -91,7 +91,8 @@ const DescriptionPage =()=>{
         const response =await fetch(BASEURL,{
             method:"GET",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         if(response.ok){
@@ -111,7 +112,8 @@ const DescriptionPage =()=>{
                 review:review
             }),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         const data =await response.json()

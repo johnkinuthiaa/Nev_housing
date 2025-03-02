@@ -7,18 +7,19 @@ import "./styles/properties.css"
 
 const Properties =()=>{
 
-    const PROPERTY_URL ="http://localhost:8080/api/v1/listings/all"
+    const PROPERTY_URL =import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/listings/all"
 
     const[location,setLocation] =useState("")
 
     const[property,setProperty] =useState([])
-    const LOCATION_SEARCH =`https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=${location}`
+    const LOCATION_SEARCH =import.meta.env.VITE_BACKEND_BASE_URL+`/api/v1/listings/get/location?location=${location}`
     useEffect(() => {
         fetchData()
     }, []);
 
     const myHeaders =new Headers()
     myHeaders.append("Content-Type","application/json")
+    myHeaders.append("ngrok-skip-browser-warning", "69420",)
 
     const fetchData =(async ()=>{
         const response =await fetch(PROPERTY_URL,{
@@ -52,7 +53,7 @@ const Properties =()=>{
         }
 
     })
-    const{isLoading} =useSWR("https://nev-backend-migration.onrender.com/api/v1/listings/all",fetchData)
+    const{isLoading} =useSWR(import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/listings/all",fetchData)
     if(isLoading){
         return <div className={"mt-40 text-center flex justify-center"}><Loading/></div>
     }

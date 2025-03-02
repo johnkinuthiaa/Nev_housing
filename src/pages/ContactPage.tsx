@@ -7,13 +7,14 @@ const ContactPage =()=>{
     const [email,setEmail] =useState<string>("")
     const [message,setMessage] =useState<string>("")
     const [mobileNumber,setMobileNumber] =useState<string>("")
-    const SEND_EMAIL_URL =`https://nev-backend-migration.onrender.com/mail/send?firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}&mobileNumber=${mobileNumber}`
+    const SEND_EMAIL_URL =import.meta.env.VITE_BACKEND_BASE_URL+`/mail/send?firstName=${firstName}&lastName=${lastName}&email=${email}&message=${message}&mobileNumber=${mobileNumber}`
 
     const sendEmail =(async()=>{
         const response =await fetch(SEND_EMAIL_URL,{
             method:"POST",
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         if(response.ok){

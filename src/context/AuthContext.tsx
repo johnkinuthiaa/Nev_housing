@@ -7,7 +7,6 @@ export const AuthProvider =({children})=>{
     const[usernameContext,setUsernameContext] =useState("")
     const[passwordContext,setPasswordContext] =useState("")
     const[emailContext,setEmailContext] =useState("")
-    const navigate =useNavigate()
 
     const loginContext =()=>{
 

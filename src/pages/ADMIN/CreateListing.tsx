@@ -60,16 +60,16 @@ const CreateListing =()=>{
         swimmingPool: false,
         yearBuilt: 0
     })
-
-    const myHeaders =new Headers()
     const send =(async ()=>{
         const formData = new FormData();
         formData.append('listingInfo', new Blob([JSON.stringify(property)], { type: 'application/json' }))
         formData.append('image', propertyImage)
-        const response =await fetch("http://localhost:8080/api/v1/listings/admin/create/new-listing?id=1",{
+        const response =await fetch(import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/listings/admin/create/new-listing?id=1",{
             method:"POST",
             body:formData,
-            headers:myHeaders
+            headers:{
+                "ngrok-skip-browser-warning": "69420",
+            }
         })
         if(response.ok){
             const data =await response.json()

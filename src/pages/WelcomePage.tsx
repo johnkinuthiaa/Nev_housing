@@ -9,7 +9,7 @@ import Card from "../components/Card.tsx";
 
 const WelcomePage =()=>{
     const [housesInNairobi,setHousesInNairobi] =useState([])
-    const LOCATION_BASE_URL ="https://nev-backend-migration.onrender.com/api/v1/listings/get/location?location=rongai"
+    const LOCATION_BASE_URL =import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/listings/get/location?location=rongai"
     const navigate =useNavigate()
 
     useEffect(()=>{
@@ -20,7 +20,8 @@ const WelcomePage =()=>{
         const response =await fetch(LOCATION_BASE_URL,{
             method:"GET",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         if(response.ok){
@@ -69,7 +70,7 @@ const WelcomePage =()=>{
             </section>
             <section className={"flex flex-col justify-center items-center mt-16 gap-5"}>
                 <p className={"font-bold text-4xl w-[400px] flex flex-col items-center leading-8"}>Newest Homes in <span className={"text-red-600"}>Nairobi</span></p>
-                <div className={"new__property__listings"}>
+                <div className={"new__property__listings flex overflow-scroll w-full"}>
                     {housesInNairobi.map(({name,description,location,imgUrl,regularPrice,id,imageBytes})=>(
                         <Card title={name} description={description} imageUrl={imgUrl} location={location}
                               price={regularPrice} id={id} imageBytes={imageBytes}/>

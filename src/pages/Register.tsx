@@ -9,7 +9,7 @@ import {signInWithPopup} from "firebase/auth"
 import {auth,provider} from "../firebase/firebase.ts"
 
 const Register =()=>{
-    const REGISTRATION_URL ="https://nev-backend-migration.onrender.com/api/v1/users/register"
+    const REGISTRATION_URL =import.meta.env.VITE_BACKEND_BASE_URL+"/api/v1/users/register"
     const[email,setEmail] =useState<string>("")
     const[username,setUsername] =useState<string>("")
     const[password,setPassword] =useState<string>("")
@@ -38,7 +38,8 @@ const Register =()=>{
                 role:"USER"
             }),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "ngrok-skip-browser-warning": "69420",
             }
         })
         if(response.ok){
